@@ -10,3 +10,11 @@
 
     * git commit -m "add file.csv"
     * git push
+
+** N.B. in caso di problemi: **
+    - git filter-repo --> se lfs non funziona ed un file è rimasto bloccato in caricamento
+    - git git lfs migrate --> per muovere un file nella glfs
+
+** Per rimuoveer glfs: **
+    - git lfs uninstall
+    - git lfs uninit
