@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def homepage():
     mappa = folium.Map([42, 12.5], zoom_start=6)
+    # commento
     mappa.get_root().width = "800px"
     mappa.get_root().height = "600px"
     folium.Marker(location=[41.89,12.492]).add_to(mappa)
