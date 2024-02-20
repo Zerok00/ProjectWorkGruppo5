@@ -8,8 +8,8 @@ def homepage():
     mappa.get_root().width = "800px"
     mappa.get_root().height = "600px"
     folium.Marker(location=[41.89,12.492]).add_to(mappa)
-    iframe = mappa.get_root()._repr_html_()
-    # return render_template("homepage.html", iframe=iframe)
+    print("hola")
+    return render_template("homepage.html", iframe=iframe)
 
 if __name__ == '__main__':
     app.run(debug=True)
