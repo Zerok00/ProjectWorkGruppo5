@@ -2,10 +2,9 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for
 import folium
 
 app = Flask(__name__)
-@app.route("/")
+@app.route("/ciao")
 def homepage():
     mappa = folium.Map([42, 12.5], zoom_start=6)
-    # commento
     mappa.get_root().width = "800px"
     mappa.get_root().height = "600px"
     folium.Marker(location=[41.89,12.492]).add_to(mappa)
