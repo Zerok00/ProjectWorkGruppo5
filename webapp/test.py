@@ -26,7 +26,6 @@ def homepage():             #calcolare i valori AQI
         lettore = csv.reader(file, delimiter=";")
         next(lettore)
         for elem in lettore:
-            print(elem)
             coord = elem[9].strip("()").split(",")
             if elem[3] not in set_stazioni:
                 if elem[5] == "NULL":
