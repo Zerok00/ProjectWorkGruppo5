@@ -5,6 +5,7 @@ E' un programma da installare, che viene usato insieme a git per gestire dei pun
 1) Da linea di comando, nella cartella della repository:
     * git lfs install
     * git lfs track "*.csv" --> bisogna sempre configurare il tipo di files che vogliamo aggiungere
+
     * git add path/to/file.csv
     * git lfs push --all origin my/branch
     * git push -u origin my/branch
