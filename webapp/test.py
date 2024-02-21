@@ -52,5 +52,7 @@ def homepage():             #calcolare i valori AQI
                                       popup="Hazardous").add_to(mappa)
                         set_stazioni.add(elem[3])
     folium.GeoJson("../database/dati/lombardy.geojson").add_to(mappa)
+    iframe = mappa.get_root()._repr_html_()
+    return render_template("homepage.html", iframe = iframe)
 if __name__ == '__main__':
     app.run(debug=True)
