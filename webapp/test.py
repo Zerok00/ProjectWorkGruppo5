@@ -65,6 +65,11 @@ def homepage():             #calcolare i valori AQI
                                       popup="Hazardous").add_to(mappa)
                         set_stazioni.add(elem[3])
     folium.GeoJson("../database/dati/lombardy.geojson").add_to(mappa)
+@app.route("/")
+def homepage():
+    mappa = folium.Map([45.465, 9.185], zoom_start=8) #mappa centrata su Milano che inquadra la lombardia
+    mappa.get_root().width = "40%"
+    folium.Marker(location=[45.464,9.191]).add_to(mappa)    #segnalino sul duomo di milano
     iframe = mappa.get_root()._repr_html_()
     return render_template("homepage.html", iframe=iframe)
 
