@@ -1,30 +1,30 @@
 import mysql.connector
-import config
+import modules.config
 
 db_config = {
-    'host': config.DB_HOST,
-    'user': config.DB_USER,
-    'password': config.DB_PASSWORD,
-    'database': config.DB_NAME
+    'host': modules.config.DB_HOST,
+    'user': modules.config.DB_USER,
+    'password': modules.config.DB_PASSWORD,
+    'database': modules.config.DB_NAME
 }
 
 
-def create_db(drop=True):
+def create_db(drop=False):
     localhost_connect = {
-        'host': config.DB_HOST,
-        'user': config.DB_USER,
-        'password': config.DB_PASSWORD,
+        'host': modules.config.DB_HOST,
+        'user': modules.config.DB_USER,
+        'password': modules.config.DB_PASSWORD,
     }
 
     connection = mysql.connector.connect(**localhost_connect)
     cursor = connection.cursor()
 
     if drop:
-        query_drop = f"DROP DATABASE {db_config['database']};"
+        query_drop = f"DROP DATABASE {modules.config.DB_NAME};"
         cursor.execute(query_drop)
         connection.commit()
     
-    query_db = f"CREATE DATABASE {db_config['database']};"
+    query_db = f"CREATE DATABASE {modules.config.DB_NAME};"
 
     cursor.execute(query_db)
     connection.commit()

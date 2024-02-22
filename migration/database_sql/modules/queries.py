@@ -1,19 +1,20 @@
-from db_connection import connect
+import modules.connect
 
+# tabelle senza auto increment: stazione e sensore
 def create_tables():
 
     # provincia -> comune -> stazione
     query = """
     CREATE TABLE IF NOT EXISTS provincia(
-    id_provincia INT PRIMARY KEY AUTO INCREMENT,
+    id_provincia INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255)
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
     query = """
     CREATE TABLE IF NOT EXISTS comune(
-    id_comune INT PRIMARY KEY AUTO INCREMENT,
+    id_comune INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
     id_provincia INT,
     CONSTRAINT fk_provincia FOREIGN KEY (id_provincia) 
@@ -21,11 +22,11 @@ def create_tables():
         ON DELETE CASCADE ON UPDATE CASCADE
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
     query = """
     CREATE TABLE IF NOT EXISTS stazione(
-    id_comune INT PRIMARY KEY AUTO INCREMENT,
+    id_stazione INT PRIMARY KEY,
     quota INT,
     id_comune INT,
     latitudine FLOAT,
@@ -35,25 +36,25 @@ def create_tables():
         ON DELETE CASCADE ON UPDATE CASCADE 
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
-     # tipologia -> sensore
+    # tipologia -> sensore
     query = """
     CREATE TABLE IF NOT EXISTS tipologia(
-    id_tipologia INT PRIMARY KEY AUTO INCREMENT,
+    id_tipologia INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
     unita_misura VARCHAR(255)
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
     query = """
     CREATE TABLE IF NOT EXISTS sensore(
-    id_sensore INT PRIMARY KEY AUTO INCREMENT,
+    id_sensore INT PRIMARY KEY AUTO_INCREMENT,
     id_stazione INT,
     id_tipologia INT,
     frequenza INT,
-    CONSTRAINT fk_stazione FOREING KEY (id_stazione)
+    CONSTRAINT fk_stazione FOREIGN KEY (id_stazione)
         REFERENCES stazione(id_stazione)
         ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_tipologia FOREIGN KEY (id_tipologia)
@@ -61,22 +62,21 @@ def create_tables():
         ON DELETE CASCADE ON UPDATE CASCADE
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
 
     # data rilevazione -> rilevazione <- sensore
     query = """
     CREATE TABLE IF NOT EXISTS data_rilevazione(
-    id_data_rilevazione INT PRIMARY KEY AUTO INCREMENT,
-    data DATETIME,
-    data_s VARCHAR(255)
+    id_data_rilevazione INT PRIMARY KEY AUTO_INCREMENT,
+    data DATETIME
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
 
     query = """
     CREATE TABLE IF NOT EXISTS rilevazione(
-    id_rilevazione INT PRIMARY KEY AUTO INCREMENT,
+    id_rilevazione INT PRIMARY KEY AUTO_INCREMENT,
     id_sensore INT,
     id_data_rilevazione INT,
     valore FLOAT,
@@ -88,7 +88,8 @@ def create_tables():
         ON DELETE CASCADE ON UPDATE CASCADE
     );
     """
-    connect.execute_one(query)
+    modules.connect.execute_one(query)
+
 
 
    
