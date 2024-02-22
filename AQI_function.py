@@ -50,8 +50,8 @@ def aqi_function(conc:dict):
     for elem in conc.keys():
         for i in range(len(epa_tables)):
             if conc[elem] > epa_tables[i][elem][0] and conc[elem] < epa_tables[i][elem][1]:
-                i_high, i_low = epa_tables[i]["AQI Range"][0], epa_tables[i]["AQI Range"][1]
-                c_high, c_low = epa_tables[i][elem][0], epa_tables[i][elem][1]
+                i_high, i_low = epa_tables[i]["AQI Range"][1], epa_tables[i]["AQI Range"][0]
+                c_high, c_low = epa_tables[i][elem][1], epa_tables[i][elem][0]
                 break
         index = (( i_high - i_low)/(c_high - c_low))*conc[elem] + i_low
         aqi[elem] = index
