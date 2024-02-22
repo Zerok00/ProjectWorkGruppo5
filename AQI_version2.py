@@ -22,7 +22,7 @@ def aqi_function(conc:dict):
     ]
 
     pollutants = {
-        "PM10": {"name": "PM10", "description": "Particulate Matter (≤10µm)"},
+        "PM10": {"name": "", "description": "Particulate Matter (≤10µm)"},
         "PM2.5": {"name": "PM2.5", "description": "Particulate Matter (≤2.5µm)"},
         "O3 1-hr": {"name": "O3 1-hr", "description": "Ozone (1-hour)"},
         "CO": {"name": "CO", "description": "Carbon Monoxide"},
