@@ -10,17 +10,6 @@ def homepage():             #calcolare i valori AQI
     mappa = folium.Map([45.51, 9.75], zoom_start=7)
     mappa.get_root().width = "100%"
     mappa.get_root().height = "100%"
-    # with open("../database/dati/lombardia_qa/accentra.CSV", "r") as file:
-    #     lettore = csv.reader(file, delimiter=";")
-    #     set_citta = set()
-    #     for elem in lettore:
-    #         set_citta.add(elem[7])
-    # for elem in set_citta: #sono 75 totali quindi non dovrebbero esserci limiti di chiamate al secondo così
-    #     key = "2ae414f8f03be693eb8250561f824cf5b47f3eed"
-    #     url = f"https://api.waqi.info/feed/{elem}/?token={key}"
-    #     response = requests.get(url)
-    #     dati = response.json()
-    #     print(dati)
     set_stazioni = set()
     with open("../database/dati/lombardia_qa/accentra.CSV", "r") as file:
         lettore = csv.reader(file, delimiter=";")
