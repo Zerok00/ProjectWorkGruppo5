@@ -22,12 +22,12 @@ def aqi_function(conc:dict):
     ]
 
     pollutants = {
-        "PM10": {"name": "", "description": "Particulate Matter (≤10µm)"},
-        "PM2.5": {"name": "PM2.5", "description": "Particulate Matter (≤2.5µm)"},
-        "O3 1-hr": {"name": "O3 1-hr", "description": "Ozone (1-hour)"},
-        "CO": {"name": "CO", "description": "Carbon Monoxide"},
-        "SO2": {"name": "SO2", "description": "Sulfur Dioxide"},
-        "NO2": {"name": "NO2", "description": "Nitrogen Dioxide"}
+        "PM10": {"name": "PM10 (SM2005)", "description": "Particulate Matter (≤10µm)"},
+        "PM2.5": {"name": "Particelle sospese PM2.5", "description": "Particulate Matter (≤2.5µm)"},
+        "O3 1-hr": {"name": "Ozono", "description": "Ozone (1-hour)"},
+        "CO": {"name": "CO", "Monossido di Carbonio": "Carbon Monoxide"},
+        "SO2": {"name": "SO2", "Biossido di Zolfo": "Sulfur Dioxide"},
+        "NO2": {"name": "NO2", "Biossido di Azoto": "Nitrogen Dioxide"}
     }
 
 
