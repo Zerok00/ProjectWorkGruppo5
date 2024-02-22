@@ -28,7 +28,25 @@ def aqi_function(conc:dict):
             epa_tables[i]["O3 1-hr"][1] = epa_tables[i]["O3 1-hr"][1]*2.030
         #print(epa_tables[i]["O3 1-hr"])
 
-    aqi = []
+    # conversione CO da ppb a mmg/m3    !!!!!!!!!!ATTENZIONE!!!!!!!!!! milligrammi
+    for i in range(len(epa_tables)):
+        if epa_tables[i]["CO"] != "-":
+            epa_tables[i]["CO"][0] = epa_tables[i]["CO"][0] * 1.185
+            epa_tables[i]["CO"][1] = epa_tables[i]["CO"][1] * 1.185
+
+    # conversione NO2 ppb a mug/m3
+    for i in range(len(epa_tables)):
+        if epa_tables[i]["NO2"] != "-":
+            epa_tables[i]["NO2"][0] = epa_tables[i]["NO2"][0] * 1.946
+            epa_tables[i]["NO2"][1] = epa_tables[i]["NO2"][1] * 1.946
+
+    # conversione SO2 da ppb a mug/m3
+    for i in range(len(epa_tables)):
+        if epa_tables[i]["SO2"] != "-":
+            epa_tables[i]["SO2"][0] = epa_tables[i]["SO2"][0] * 2.710
+            epa_tables[i]["SO2"][1] = epa_tables[i]["SO2"][1] * 2.710
+
+    aqi = {}
     for elem in conc.keys():
         for i in range(len(epa_tables)):
             if conc[elem] > epa_tables[i][elem][0] and conc[elem] < epa_tables[i][elem][1]:
@@ -36,7 +54,7 @@ def aqi_function(conc:dict):
                 c_high, c_low = epa_tables[i][elem][0], epa_tables[i][elem][1]
                 break
         index = (( i_high - i_low)/(c_high - c_low))*conc[elem] + i_low
-        aqi.append(index)
+        aqi[elem] = index
 
     return aqi
 
@@ -52,7 +70,8 @@ def aqi_function(conc:dict):
 
 
 example = {"PM10": 53.5 , "PM2.5": 58., "O3 1-hr": 56., "CO": 12.,
-         "SO2": 35.0, "NO2": 53.0 }
+         "SO2": 35.0, "NO2": 5.0 }
 
 print(aqi_function(example))
+#print(max(aqi_function(example)))
 
