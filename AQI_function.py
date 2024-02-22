@@ -1,7 +1,7 @@
-def aqi_function():
+def aqi_function(conc:dict):
     epa_tables = [
 
-        {"AQI Range": [0.0, 50.0], "PM10": [0.0, 54.], "PM2.5": [0.0, 9.0], "O3 1-hr": "-", "CO": [0.0, 4.4],
+        {"AQI Range": [0.0, 50.0], "PM10": [0.0, 54.], "PM2.5": [0.0, 9.0], "O3 1-hr":[ "CO": [0.0, 4.4],
          "SO2": [0.0, 35.0], "NO2": [0.0, 53.0], "Description": "Good"},
 
         {"AQI Range": [51.0, 100.0], "PM10": [55., 154.], "PM2.5": [9.1, 35.4], "O3 1-hr": "-", "CO": [4.5, 9.4],
@@ -21,13 +21,21 @@ def aqi_function():
 
     ]
 
-
     #conversione O3 da ppb a mug/m3
     for i in range(len(epa_tables)):
         if epa_tables[i]["O3 1-hr"] != "-":
-            epa_tables[i]["O3 1-hr"][0] = epa_tables[i]["O3 1-hr"][0]*20.30
-            epa_tables[i]["O3 1-hr"][1] = epa_tables[i]["O3 1-hr"][1]*20.30
+            epa_tables[i]["O3 1-hr"][0] = epa_tables[i]["O3 1-hr"][0]*2.030
+            epa_tables[i]["O3 1-hr"][1] = epa_tables[i]["O3 1-hr"][1]*2.030
+        print(epa_tables[i]["O3 1-hr"])
 
-    print(epa_tables)
+    for elem in conc.keys():
+        if conc > epa_tables[0] and conc < epa_tables[1]
+        elif conc > epa_tables[0] and conc < epa_tables[1]
+        elif conc > epa_tables[0] and conc < epa_tables[1]
+        elif conc > epa_tables[0] and conc < epa_tables[1]
 
-aqi_function()
+example = {"PM10": 53.5 , "PM2.5": 588., "O3 1-hr": 656., "CO": 12.,
+         "SO2": 35.0, "NO2": 53.0 }
+
+aqi_function(example)
+
