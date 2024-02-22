@@ -1,10 +1,10 @@
 def aqi_function(conc:dict):
     epa_tables = [
 
-        {"AQI Range": [0.0, 50.0], "PM10": [0.0, 54.], "PM2.5": [0.0, 9.0], "O3 1-hr":[ "CO": [0.0, 4.4],
+        {"AQI Range": [0.0, 50.0], "PM10": [0.0, 54.], "PM2.5": [0.0, 9.0], "O3 1-hr":[0.0, 54.], "CO":[0.0, 4.4],
          "SO2": [0.0, 35.0], "NO2": [0.0, 53.0], "Description": "Good"},
 
-        {"AQI Range": [51.0, 100.0], "PM10": [55., 154.], "PM2.5": [9.1, 35.4], "O3 1-hr": "-", "CO": [4.5, 9.4],
+        {"AQI Range": [51.0, 100.0], "PM10": [55., 154.], "PM2.5": [9.1, 35.4], "O3 1-hr":[55.0, 70.], "CO": [4.5, 9.4],
          "SO2": [36.0, 75.0], "NO2": [54.0, 100.0], "Description": "Moderate"},
 
         {"AQI Range": [101.0, 150.0], "PM10": [155.0, 254.0], "PM2.5": [35.5, 55.4], "O3 1-hr": [125.0, 164.0],
@@ -26,16 +26,33 @@ def aqi_function(conc:dict):
         if epa_tables[i]["O3 1-hr"] != "-":
             epa_tables[i]["O3 1-hr"][0] = epa_tables[i]["O3 1-hr"][0]*2.030
             epa_tables[i]["O3 1-hr"][1] = epa_tables[i]["O3 1-hr"][1]*2.030
-        print(epa_tables[i]["O3 1-hr"])
+        #print(epa_tables[i]["O3 1-hr"])
 
+    aqi = []
     for elem in conc.keys():
-        if conc > epa_tables[0] and conc < epa_tables[1]
-        elif conc > epa_tables[0] and conc < epa_tables[1]
-        elif conc > epa_tables[0] and conc < epa_tables[1]
-        elif conc > epa_tables[0] and conc < epa_tables[1]
+        for i in range(len(epa_tables)):
+            if conc[elem] > epa_tables[i][elem][0] and conc[elem] < epa_tables[i][elem][1]:
+                i_high, i_low = epa_tables[i]["AQI Range"][0], epa_tables[i]["AQI Range"][1]
+                c_high, c_low = epa_tables[i][elem][0], epa_tables[i][elem][1]
+                break
+        index = (( i_high - i_low)/(c_high - c_low))*conc[elem] + i_low
+        aqi.append(index)
 
-example = {"PM10": 53.5 , "PM2.5": 588., "O3 1-hr": 656., "CO": 12.,
+    return aqi
+
+"""        elif conc[elem] > epa_tables[1][elem] and conc[elem] < epa_tables[1][elem]:
+
+        elif conc[elem] > epa_tables[2][elem] and conc[elem] < epa_tables[2][elem]:
+
+        elif conc[elem] > epa_tables[3][elem] and conc[elem] < epa_tables[3][elem]:
+
+        elif conc[elem] > epa_tables[4][elem] and conc[elem] < epa_tables[4][elem]:
+
+        elif conc[elem] > epa_tables[5][elem] and conc[elem] < epa_tables[5][elem]:"""
+
+
+example = {"PM10": 53.5 , "PM2.5": 58., "O3 1-hr": 56., "CO": 12.,
          "SO2": 35.0, "NO2": 53.0 }
 
-aqi_function(example)
+print(aqi_function(example))
 
