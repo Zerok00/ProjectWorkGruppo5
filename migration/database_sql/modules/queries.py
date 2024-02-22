@@ -1,7 +1,7 @@
 import modules.connect
 
 # tabelle senza auto increment: stazione e sensore
-def create_tables():
+def execute_create_tables():
 
     # provincia -> comune -> stazione
     query = """
@@ -90,6 +90,59 @@ def create_tables():
     """
     modules.connect.execute_one(query)
 
+
+# insert da csv stazioni
+def insert_provincia():
+    query_provincia = """
+    INSERT INTO provincia(nome) 
+    VALUES (%s);
+    """
+    return query_provincia
+
+def insert_comune():
+    query_comune = """
+    INSERT INTO comune(id_comune, nome, id_provincia) 
+    VALUES (%s, %s, %s);
+    """
+    return query_comune
+
+# NO AUTO_INCREMENT
+def insert_stazione():
+    query_stazione = """
+    INSERT INTO stazione(id_stazione, quota, id_comune, latitudine, longitudine) 
+    VALUES (%s, %s, %s, %s, %s);
+    """
+    return query_stazione
+
+def insert_tipologia():
+    query_tipologia = """
+    INSERT INTO tipologia(id_tipologia, nome, unita_misura) 
+    VALUES (%s, %s, %s);
+    """
+    return query_tipologia
+
+# NO AUTO_INCREMENT
+def insert_sensore():
+    query_sensore = """
+    INSERT INTO sensore(id_sensore, id_stazione, id_tipologia, frequenza) 
+    VALUES (%s, %s, %s, %s);
+    """
+    return query_sensore
+
+# insert da csv rilevazioni
+def insert_data_rilevazione():
+    query_data_rilevazione = """
+    INSERT INTO data_rilevazione(id_data, data)
+    VALUES (%s, %s);
+    """
+    return query_data_rilevazione
+
+def insert_rilevazione():
+    query_rilevazione = """
+    INSERT INTO rilevazione(id_rilevazione, id_sensore, id_data, valore) 
+    VALUES (%s, %s, %s, %s);
+    """
+    return query_rilevazione
 
 
    

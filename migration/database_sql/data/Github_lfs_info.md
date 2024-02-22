@@ -16,10 +16,10 @@ E' un programma da installare, che viene usato insieme a git per gestire dei pun
 Tutti i collaboratori devono installare Github Large File Storage per accedere ai file, 
 però solo la prima persona che carica il file deve configurare GLFS per gestirlo.
 
-** N.B. in caso di problemi: **
+**N.B. in caso di problemi:**  
     - git filter-repo --> se lfs non funziona ed un file è rimasto bloccato in caricamento
     - git lfs migrate --> per muovere un file nella lfs
 
-** Per rimuovere glfs: **
+**Per rimuovere glfs:**  
     - git lfs uninstall
     - git lfs uninit
