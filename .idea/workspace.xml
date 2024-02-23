@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/database/dati/lombardia_qa/Dati_sensori_aria_20240219.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/dati/lombardia_qa/Dati_sensori_aria_20240219.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_analysis/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_analysis/confronto_sensori.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_analysis/usabilità_per_inquinante.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/provaaaa.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/prova.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dati/lombardy.geojson" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +47,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\migration\database_sql\data" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\static" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates\startbootstrap-sb-admin-2-gh-pages" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\database\dati\lombardia_qa" />
     </key>
   </component>
   <component name="SharedIndexes">
