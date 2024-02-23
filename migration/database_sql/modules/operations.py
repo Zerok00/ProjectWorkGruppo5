@@ -141,20 +141,19 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         print("Caricamento dati rilevazioni in corso...")
 
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
-        tot = len(df)
 
         for chunk in df:
             chunk = chunk.to_numpy()
-            query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
-
+            
             # data rilevazione
             lista_tuple = [(i[1],) for i in chunk]
             query = modules.queries.insert_data_rilevazione()
             modules.connect.execute_many(query, lista_tuple)
 
             # rilevazione
+            query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
             chiavi = diz_chiavi(query)
-            lista_tuple = [(i[0], chiavi[i[1]], i[2]) for i in chunk]
+            lista_tuple = [(i[0], chiavi[i[1]], i[2],) for i in chunk]
             query = modules.queries.insert_rilevazione()
             modules.connect.execute_many(query, lista_tuple)
 

@@ -32,3 +32,4 @@ operations.inserimento_rilevazioni(path_rilevazioni, execute=True)
 
 
 
+
