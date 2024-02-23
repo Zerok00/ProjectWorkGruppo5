@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/webapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dati/lombardia_qa/Dati_sensori_aria_20240219.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/dati/lombardia_qa/Dati_sensori_aria_20240219.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
