@@ -7,7 +7,7 @@ def execute_create_tables():
     query = """
     CREATE TABLE IF NOT EXISTS provincia(
     id_provincia INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255)
+    nome VARCHAR(255) UNIQUE
     );
     """
     modules.connect.execute_one(query)
@@ -15,7 +15,7 @@ def execute_create_tables():
     query = """
     CREATE TABLE IF NOT EXISTS comune(
     id_comune INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255),
+    nome VARCHAR(255) UNIQUE,
     id_provincia INT,
     CONSTRAINT fk_provincia FOREIGN KEY (id_provincia) 
         REFERENCES provincia(id_provincia)
@@ -29,8 +29,8 @@ def execute_create_tables():
     id_stazione INT PRIMARY KEY,
     quota INT,
     id_comune INT,
-    latitudine FLOAT,
-    longitudine FLOAT,
+    latitudine FLOAT UNIQUE,
+    longitudine FLOAT UNIQUE,
     CONSTRAINT fk_comune FOREIGN KEY (id_comune) 
         REFERENCES comune(id_comune)
         ON DELETE CASCADE ON UPDATE CASCADE 
@@ -42,7 +42,7 @@ def execute_create_tables():
     query = """
     CREATE TABLE IF NOT EXISTS tipologia(
     id_tipologia INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255),
+    nome VARCHAR(255) UNIQUE,
     unita_misura VARCHAR(255)
     );
     """
@@ -50,7 +50,7 @@ def execute_create_tables():
 
     query = """
     CREATE TABLE IF NOT EXISTS sensore(
-    id_sensore INT PRIMARY KEY AUTO_INCREMENT,
+    id_sensore INT PRIMARY KEY,
     id_stazione INT,
     id_tipologia INT,
     frequenza INT,
@@ -69,7 +69,7 @@ def execute_create_tables():
     query = """
     CREATE TABLE IF NOT EXISTS data_rilevazione(
     id_data_rilevazione INT PRIMARY KEY AUTO_INCREMENT,
-    data DATETIME
+    data VARCHAR(255) UNIQUE
     );
     """
     modules.connect.execute_one(query)
@@ -93,57 +93,55 @@ def execute_create_tables():
 
 # insert da csv stazioni
 def insert_provincia():
-    query_provincia = """
-    INSERT INTO provincia(nome) 
+    query = """
+    INSERT IGNORE INTO provincia(nome) 
     VALUES (%s);
     """
-    return query_provincia
+    return query
 
 def insert_comune():
-    query_comune = """
-    INSERT INTO comune(id_comune, nome, id_provincia) 
-    VALUES (%s, %s, %s);
+    query = """
+    INSERT IGNORE INTO comune(nome, id_provincia) 
+    VALUES (%s, %s);
     """
-    return query_comune
+    return query
 
 # NO AUTO_INCREMENT
 def insert_stazione():
-    query_stazione = """
-    INSERT INTO stazione(id_stazione, quota, id_comune, latitudine, longitudine) 
+    query = """
+    INSERT IGNORE INTO stazione(id_stazione, quota, id_comune, latitudine, longitudine) 
     VALUES (%s, %s, %s, %s, %s);
     """
-    return query_stazione
+    return query
 
 def insert_tipologia():
-    query_tipologia = """
-    INSERT INTO tipologia(id_tipologia, nome, unita_misura) 
+    query = """
+    INSERT IGNORE INTO tipologia(nome, unita_misura) 
+    VALUES (%s, %s);
+    """
+    return query
+
+# NO AUTO_INCREMENT - frequenza sospesa
+def insert_sensore():
+    query = """
+    INSERT IGNORE INTO sensore(id_sensore, id_stazione, id_tipologia) 
     VALUES (%s, %s, %s);
     """
-    return query_tipologia
-
-# NO AUTO_INCREMENT
-def insert_sensore():
-    query_sensore = """
-    INSERT INTO sensore(id_sensore, id_stazione, id_tipologia, frequenza) 
-    VALUES (%s, %s, %s, %s);
-    """
-    return query_sensore
+    return query
 
 # insert da csv rilevazioni
 def insert_data_rilevazione():
-    query_data_rilevazione = """
-    INSERT INTO data_rilevazione(id_data, data)
-    VALUES (%s, %s);
+    query = """
+    INSERT IGNORE INTO data_rilevazione(data)
+    VALUES (%s);
     """
-    return query_data_rilevazione
+    return query
 
 def insert_rilevazione():
-    query_rilevazione = """
-    INSERT INTO rilevazione(id_rilevazione, id_sensore, id_data, valore) 
-    VALUES (%s, %s, %s, %s);
+    query = """
+    INSERT INTO rilevazione(id_sensore, id_data_rilevazione, valore) 
+    VALUES (%s, %s, %s);
     """
-    return query_rilevazione
-
-
+    return query
    
 
