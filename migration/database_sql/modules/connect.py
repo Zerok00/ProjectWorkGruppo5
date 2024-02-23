@@ -94,3 +94,14 @@ def execute_many(query, data):
 
     cursor.close()
     connection.close()
+
+
+def execute_batch(query, data, connection, cursor):
+
+    try:
+        cursor.executemany(query, data)
+        connection.commit()
+       
+    except mysql.connector.Error as err:
+        print(f"Error: '{err}'")
+        connection.commit()

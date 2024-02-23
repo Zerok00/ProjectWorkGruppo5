@@ -28,14 +28,15 @@ Elementi chiave per assicurare efficienza nell'inserimento:
     1) Pulizia dei dati
     2) Uso dataframe pandas divisi in chunks gestibili (circa 1M)
     3) divido i dati in array numpy di tuple con list comprehensions
+    4) una sola select per recuperare dati foreign key
+    
+    ottimizzazione inserimento rilevazioni e date (circa 3M di records da dividere):
+    276 secondi - base, batch 40000 (err. 50000)
+    274 secondi - una sola connessione per tutte le operazioni, batch 40000 (err. 50000)
+    264 secondi - max_allowed_package=1GB, batch 500000 (err. 1000000)
+    121 secondi - trasformazione in set della lista con valori ripetuti, batch 1000000
 
-Problema: come recupero foreign key mantenendo inserimenti efficienti ed interrogazioni al minimo?
 
-    Soluzione 1) Non interrogo DB del tuto e uso un trigger per recuperare la chiave.
-                Non possibile, le relazioni fra tabelle è arbitraria, mi serve info su csv
-                e non posso fare affidamento sull'ordine per dati unique
-
-    Soluzione 2) Una singola interrogazione dopo ogni inserimento per costruire un dizionario di chiavi primarie
 
  '''
 
@@ -90,6 +91,17 @@ def diz_chiavi(query):
     rows = cursor.fetchall()
     result = {line[1] : line[0] for line in rows}
 
+    cursor.close()
+    connection.close()
+
+    return result
+
+
+def diz_chiavi_batch(query, connection, cursor):
+
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    result = {line[1] : line[0] for line in rows}
     return result
 
 
@@ -134,31 +146,40 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
 
 def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
     if execute:
-        dim = 40000
-
         start = time.time()
+
+        connection = modules.connect.create_db_connection()
+        cursor = connection.cursor()
+
+        query = "SET GLOBAL max_allowed_packet=1073741824;"
+        cursor.execute(query)
+
+        dim = 1000000
 
         print("Caricamento dati rilevazioni in corso...")
 
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
 
+        query_select = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
+
         for chunk in df:
             chunk = chunk.to_numpy()
             
             # data rilevazione
-            lista_tuple = [(i[1],) for i in chunk]
+            lista_tuple = list({(i[1],) for i in chunk})
             query = modules.queries.insert_data_rilevazione()
-            modules.connect.execute_many(query, lista_tuple)
+            modules.connect.execute_batch(query, lista_tuple, connection, cursor)
 
             # rilevazione
-            query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
-            chiavi = diz_chiavi(query)
+            chiavi = diz_chiavi_batch(query_select, connection, cursor)
             lista_tuple = [(i[0], chiavi[i[1]], i[2],) for i in chunk]
             query = modules.queries.insert_rilevazione()
-            modules.connect.execute_many(query, lista_tuple)
+            modules.connect.execute_batch(query, lista_tuple, connection, cursor)
+
+        cursor.close()
+        connection.close()
 
         print("Caricamento dati rilevazioni completato")
-
 
         end = time.time()
         print(f"tempo impiegato: {end - start}")
