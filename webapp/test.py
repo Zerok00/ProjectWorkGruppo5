@@ -1,26 +1,15 @@
 import csv
 from flask import Flask, jsonify, render_template, request, redirect, url_for
+import requests
 import folium
 
 app = Flask(__name__)
 
-# with open("../database/dati/lombardia_qa/accentra.CSV", "r") as file:
-#     lettore = csv.reader(file, delimiter=";")
-#     next(lettore)
-#     diz_stazioni = {}
-#     for elem in lettore:
-#         diz_stazioni[elem[3]]=[]
-# with open("../database/dati/lombardia_qa/accentra.CSV", "r") as file:
-#     lettore = csv.reader(file, delimiter=";")
-#     next(lettore)
-#     for elem in lettore:
-#         diz_stazioni[elem[3]].append(f"{elem[1]}:{elem[5]}")
-#
-# print(diz_stazioni)               risulta che la quota di ogni sensore è uguale nella stessa stazione, quindi l'AQI è già calcolato
 @app.route("/")
 def homepage():             #calcolare i valori AQI
-    mappa = folium.Map([45.51, 9.75], zoom_start=8)
-    mappa.get_root().width = "800px"
+    mappa = folium.Map([45.51, 9.75], zoom_start=7)
+    mappa.get_root().width = "100%"
+    mappa.get_root().height = "100%"
     set_stazioni = set()
     with open("../database/dati/lombardia_qa/accentra.CSV", "r") as file:
         lettore = csv.reader(file, delimiter=";")
@@ -65,9 +54,7 @@ def homepage():             #calcolare i valori AQI
                                       popup="Hazardous").add_to(mappa)
                         set_stazioni.add(elem[3])
     folium.GeoJson("../database/dati/lombardy.geojson").add_to(mappa)
-
     iframe = mappa.get_root()._repr_html_()
-    return render_template("homepage.html", iframe=iframe)
-
+    return render_template("index.html", iframe = iframe)
 if __name__ == '__main__':
     app.run(debug=True)
