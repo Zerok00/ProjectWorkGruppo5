@@ -13,21 +13,18 @@ except Error as e:
 
 
 path = 'data\Stazioni_qualit__dell_aria_20240220.csv'
-operations.clean_csv_stazioni(path, execute=False)
+operations.clean_csv_stazioni(path, execute=True)
 
 path_stazioni = 'data\data_clean\dataset_pulito_stazioni.csv'
 path = 'data\Dati_sensori_aria_20240219.csv'
-operations.clean_csv_rilevazioni(path, path_stazioni, execute=False)
-operations.clean_csv_rilevazioni_test(path, path_stazioni, execute=True)
-
+operations.clean_csv_rilevazioni(path, path_stazioni, execute=True)
 
 path_rilevazioni = 'data\data_clean\dataset_pulito_rilevazioni.csv'
-path_rilevazioni_test = 'data\data_clean\dataset_pulito_rilevazioni_test.csv'
 
 operations.inserimento_stazioni(path_stazioni, execute=True)
-
 operations.inserimento_rilevazioni(path_rilevazioni, execute=True)
-operations.inserimento_rilevazioni(path_rilevazioni_test, execute=False)
+
+
 
 
 

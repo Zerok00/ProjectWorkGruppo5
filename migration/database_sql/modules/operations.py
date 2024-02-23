@@ -44,7 +44,6 @@ import modules.queries
 import modules.connect
 import mysql.connector
 import time
-from line_profiler import profile
 
 def clean_csv_stazioni(path, new_file_name='data_clean/dataset_pulito_stazioni.csv', execute=False):
     if execute:
@@ -160,7 +159,7 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
 
         print("Caricamento dati stazioni completato")
 
-@profile
+
 def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
     if execute:
         start = time.time()
@@ -180,10 +179,13 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         query_select = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
 
         for chunk in df:
+
+            chunk['data_24'] = pd.to_datetime(chunk['Data'], format='%d/%m/%Y %I:%M:%S %p')
+            chunk['data_24'] = chunk['data_24'].dt.strftime('%Y/%m/%d %H:%M:%S')
             chunk = chunk.to_numpy()
             
             # data rilevazione
-            lista_tuple = list({(i[1],) for i in chunk})
+            lista_tuple = list({(i[1], i[3],) for i in chunk})
             query = modules.queries.insert_data_rilevazione()
             modules.connect.execute_batch(query, lista_tuple, connection, cursor)
 
