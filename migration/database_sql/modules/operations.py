@@ -44,6 +44,7 @@ import modules.queries
 import modules.connect
 import mysql.connector
 import time
+from line_profiler import profile
 
 def clean_csv_stazioni(path, new_file_name='data_clean/dataset_pulito_stazioni.csv', execute=False):
     if execute:
@@ -159,7 +160,7 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
 
         print("Caricamento dati stazioni completato")
 
-
+@profile
 def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
     if execute:
         start = time.time()
