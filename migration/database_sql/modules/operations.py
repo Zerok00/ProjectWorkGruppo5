@@ -82,6 +82,24 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
         df.to_csv(new_path, index=False)
 
 
+def clean_csv_rilevazioni_test(path, path_csv_stazioni, new_file_name='data_clean/dataset_pulito_rilevazioni_test.csv', execute=False):
+     if execute:
+        #creo path per nuovo file
+        new_path = path.split('\\')
+        new_path[-1] = new_file_name
+        new_path = "/".join(new_path)
+
+        df_rilevazioni = pd.read_csv(path)
+        df_stazioni = pd.read_csv(path_csv_stazioni, nrows=800000)
+
+        # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
+        df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
+        df = df.iloc[:,[0,1,2]]
+        df = df[df['Valore'] != -9999]
+
+        df.to_csv(new_path, index=False)
+
+
 def diz_chiavi(query):
     connection = modules.connect.create_db_connection()
     cursor = connection.cursor()
@@ -90,6 +108,7 @@ def diz_chiavi(query):
     rows = cursor.fetchall()
     result = {line[1] : line[0] for line in rows}
 
+    connection.close()
     return result
 
 
@@ -137,16 +156,15 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         dim = 40000
 
         start = time.time()
-
         print("Caricamento dati rilevazioni in corso...")
 
+        query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
+
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
-        tot = len(df)
 
         for chunk in df:
             chunk = chunk.to_numpy()
-            query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
-
+            
             # data rilevazione
             lista_tuple = [(i[1],) for i in chunk]
             query = modules.queries.insert_data_rilevazione()
