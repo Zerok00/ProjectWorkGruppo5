@@ -36,8 +36,6 @@ Elementi chiave per assicurare efficienza nell'inserimento:
     264 secondi - max_allowed_package=1GB, batch 500000 (err. 1000000)
     121 secondi - trasformazione in set della lista con valori ripetuti, batch 1000000
 
-
-
  '''
 
 import pandas as pd
@@ -172,11 +170,9 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         query = "SET GLOBAL max_allowed_packet=1073741824;"
         cursor.execute(query)
 
-        dim = 1000000
+        dim = 2000000
 
         print("Caricamento dati rilevazioni in corso...")
-
-        query = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
 
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
 
@@ -184,7 +180,6 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
 
         for chunk in df:
             chunk = chunk.to_numpy()
-            
             
             # data rilevazione
             lista_tuple = list({(i[1],) for i in chunk})

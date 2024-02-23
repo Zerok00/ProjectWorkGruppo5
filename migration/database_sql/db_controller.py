@@ -26,8 +26,8 @@ path_rilevazioni_test = 'data\data_clean\dataset_pulito_rilevazioni_test.csv'
 
 operations.inserimento_stazioni(path_stazioni, execute=True)
 
-operations.inserimento_rilevazioni(path_rilevazioni, execute=False)
-operations.inserimento_rilevazioni(path_rilevazioni_test, execute=True)
+operations.inserimento_rilevazioni(path_rilevazioni, execute=True)
+operations.inserimento_rilevazioni(path_rilevazioni_test, execute=False)
 
 
 
