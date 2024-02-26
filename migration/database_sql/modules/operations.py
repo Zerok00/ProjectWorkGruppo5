@@ -87,7 +87,7 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
 
         # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
         df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
-        df = df.loc[:,[
+        df = df.loc[:, [
             'IdSensore',
             'NomeTipoSensore',
             'UnitaMisura'
@@ -95,6 +95,31 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
         df = df[df['Valore'] != -9999]
 
         df.to_csv(new_path, index=False)
+
+
+def clean_csv_rilevazioni_freq(path, path_csv_stazioni, new_file_name='data_clean/freq_test_dataset_pulito_rilevazioni.csv', execute=False):
+        new_path = path.split('\\')
+        new_path[-1] = new_file_name
+        new_path = "/".join(new_path)
+
+        df_rilevazioni = pd.read_csv(path)
+        df_stazioni = pd.read_csv(path_csv_stazioni)
+
+        # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
+        df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
+        df = df.loc[:,[
+            'IdSensore',
+            'NomeTipoSensore',
+            'UnitaMisura'
+        ]]
+        df = df[df['Valore'] != -9999]
+
+        filtro_frequenze = df.copy()
+        filtro_frequenze = filtro_frequenze.groupby(['IdSensore'])['Id_sensore'].count()
+        print(filtro_frequenze)
+
+        # df.to_csv(new_path, index=False) 
+
 
 def diz_chiavi(query):
     connection = modules.connect.create_db_connection()
@@ -118,13 +143,12 @@ def diz_chiavi_batch(query, connection, cursor):
     return result
 
 def get_freq(NomeTipoSensore):
-
     pass
 
 
 def inserimento_stazioni(path_csv_stazioni, execute=False):
     if execute:
-        df = pd.read_csv(path_csv_stazioni) 
+        df = pd.read_csv(path_csv_stazioni)
 
         connection = modules.connect.create_db_connection()
         cursor = connection.cursor()
