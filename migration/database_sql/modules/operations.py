@@ -87,7 +87,7 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
 
         # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
         df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
-        df = df.loc[:, [
+        df = df.loc[:,[
             'IdSensore',
             'NomeTipoSensore',
             'UnitaMisura'
@@ -121,6 +121,7 @@ def clean_csv_rilevazioni_freq(path, path_csv_stazioni, new_file_name='data_clea
         # df.to_csv(new_path, index=False) 
 
 
+
 def diz_chiavi(query):
     connection = modules.connect.create_db_connection()
     cursor = connection.cursor()
@@ -148,7 +149,7 @@ def get_freq(NomeTipoSensore):
 
 def inserimento_stazioni(path_csv_stazioni, execute=False):
     if execute:
-        df = pd.read_csv(path_csv_stazioni)
+        df = pd.read_csv(path_csv_stazioni) 
 
         connection = modules.connect.create_db_connection()
         cursor = connection.cursor()
