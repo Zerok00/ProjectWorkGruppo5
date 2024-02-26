@@ -69,7 +69,8 @@ def execute_create_tables():
     query = """
     CREATE TABLE IF NOT EXISTS data_rilevazione(
     id_data_rilevazione INT PRIMARY KEY AUTO_INCREMENT,
-    data VARCHAR(255) UNIQUE
+    data VARCHAR(255) UNIQUE,
+    data_24 DATETIME UNIQUE
     );
     """
     modules.connect.execute_one(query)
@@ -132,8 +133,8 @@ def insert_sensore():
 # insert da csv rilevazioni
 def insert_data_rilevazione():
     query = """
-    INSERT IGNORE INTO data_rilevazione(data)
-    VALUES (%s);
+    INSERT IGNORE INTO data_rilevazione(data, data_24)
+    VALUES (%s, %s);
     """
     return query
 
