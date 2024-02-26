@@ -59,7 +59,7 @@ def aqi_function(conc:dict):
     aqi = {}
     for elem in conc.keys():
         for i in range(len(epa_tables)):
-            if conc[elem] > epa_tables[i][elem][0] and conc[elem] < epa_tables[i][elem][1]:
+            if conc[elem] >= epa_tables[i][elem][0] and conc[elem] <= epa_tables[i][elem][1]:
                 i_high, i_low = epa_tables[i]["AQI Range"][1], epa_tables[i]["AQI Range"][0]
                 c_high, c_low = epa_tables[i][elem][1], epa_tables[i][elem][0]
                 break
@@ -80,8 +80,8 @@ def aqi_function(conc:dict):
         elif conc[elem] > epa_tables[5][elem] and conc[elem] < epa_tables[5][elem]:"""
 
 
-example = {"PM10": 55.5 , "PM2.5": 58., "O3 1-hr": 56., "CO": 12.,
-         "SO2": 35.0, "NO2": 5.0 }
-
-print(aqi_function(example))
+# example = {"PM10": 0 , "PM2.5": 58., "O3 1-hr": 56., "CO": 12.,
+#          "SO2": 35.0, "NO2": 5.0 }
+#
+# print(aqi_function(example))
 #print(max(aqi_function(example)))
