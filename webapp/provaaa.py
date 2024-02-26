@@ -74,7 +74,7 @@ for elem in lista_finale:
     tupla = (elem[3], elem[4], elem[5])
     dizionario_stazione_posizione_sensori[f"stazione{elem[0]}"]["lista_sensori"].append(tupla)
 
-print(dizionario_stazione_posizione_sensori)
+#print(dizionario_stazione_posizione_sensori)
 for elemento in dizionario_stazione_posizione_sensori:
     print()
     print(elemento)
