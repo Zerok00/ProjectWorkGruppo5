@@ -54,6 +54,7 @@ def execute_create_tables():
     id_stazione INT,
     id_tipologia INT,
     frequenza INT,
+    ambito VARCHAR(255),
     CONSTRAINT fk_stazione FOREIGN KEY (id_stazione)
         REFERENCES stazione(id_stazione)
         ON DELETE CASCADE ON UPDATE CASCADE,
@@ -125,8 +126,8 @@ def insert_tipologia():
 # NO AUTO_INCREMENT - frequenza sospesa
 def insert_sensore():
     query = """
-    INSERT IGNORE INTO sensore(id_sensore, id_stazione, id_tipologia) 
-    VALUES (%s, %s, %s);
+    INSERT IGNORE INTO sensore(id_sensore, id_stazione, id_tipologia, frequenza, ambito) 
+    VALUES (%s, %s, %s, %s, %s);
     """
     return query
 
