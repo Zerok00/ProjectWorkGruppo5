@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_version2
 import folium
@@ -61,6 +61,6 @@ def homepage():             #calcolare i valori AQI
     iframe = mappa.get_root()._repr_html_()
     return render_template("index.html", iframe=iframe)
 
-
+    #return Response(stream_template('index.html', iframe=iframe))
 if __name__ == '__main__':
     app.run(debug=True)
