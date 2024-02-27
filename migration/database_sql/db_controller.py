@@ -23,14 +23,3 @@ path_rilevazioni = 'data\data_clean\dataset_pulito_rilevazioni.csv'
 
 operations.inserimento_stazioni(path_stazioni, execute=True)
 operations.inserimento_rilevazioni(path_rilevazioni, execute=True)
-
-
-
-
-
-
-
-
-
-
-
