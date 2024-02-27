@@ -10,10 +10,17 @@ with open('comuni_accettabili.txt', mode='r') as tsv_file:
     next(tsv_reader)
     lista_comuni = list(tsv_reader)
 
-print(lista_comuni)
-print(len(lista_comuni))
+with open('comuni_search_bar.csv', mode='w') as file:
+    writer = csv.writer(file)
+    for riga in lista_comuni:
+        print(riga[0])
+        writer.writerow([riga[0] + ", " + riga[1],])
 
+#
+# print(lista_comuni)
+# print(len(lista_comuni))
 
+'''
 # calling the Nominatim tool
 loc = Nominatim(user_agent="GetLoc")
 
@@ -26,6 +33,6 @@ for elem in lista_comuni:
     print(indirizzo)
     print(lista_problemi)
 
-print(lista_problemi)
+print(lista_problemi)'''
 
 
