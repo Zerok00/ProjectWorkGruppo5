@@ -51,9 +51,9 @@ def calcolo_stazioni():
 
     lista_finale = []
 
-    for cristo in sensori_per_stazione:
-        if cristo[3] in diz_id:
-            x = (cristo[0], cristo[1], cristo[2], cristo[3], cristo[4], diz_id[cristo[3]])
+    for elementoo in sensori_per_stazione:
+        if elementoo[3] in diz_id:
+            x = (elementoo[0], elementoo[1], elementoo[2], elementoo[3], elementoo[4], diz_id[elementoo[3]])
             lista_finale.append(x)
 
     dizionario_stazione_posizione_sensori = {}
