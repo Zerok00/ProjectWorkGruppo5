@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/conteggi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/coordinate_per_comune.CSV" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/PRO_UPGRADE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/utilities-animation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/utilities-border.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/utilities-color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/startbootstrap-sb-admin-2-gh-pages/utilities-other.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
