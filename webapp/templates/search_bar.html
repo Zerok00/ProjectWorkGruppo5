@@ -36,12 +36,56 @@
     </div>
 </div>
 
-<script>
-    function funzione(){
-        document.getElementById("barra_ricerca").innerHTML = value
-    }
-</script>
-<script src="script.js"></script>
+{% block javascript %}
+    <script>
+        const result = document.querySelector(".list-group");
+
+        let list = [];
+
+        let keywords = JSON.parse({{comuni | tojson}})
+
+        const startsWith = (keyword, inputKeyword) =>
+          keyword.toLocaleLowerCase().startsWith(inputKeyword.toLocaleLowerCase());
+
+        const generateList = () => (list = list.map((data) => (data = liTag(data))));
+
+        const showList = (inputKeyword) => {
+          result.classList.add("show");
+          result.innerHTML = list.join("") || liTag(inputKeyword);
+        };
+
+        const hideList = () => {
+          list = [];
+          result.innerHTML = list;
+          result.classList.remove("show");
+        };
+
+        const liTag = (value) =>
+          `<li class="list-group-item" onclick="funzione(this)">${value}</li>`;
+
+        function funzione(list){
+                document.getElementById("barra_ricerca").value = list.innerHTML;
+                result.innerHTML = '';
+            }
+
+        const search = (e) => {
+          let keyword = e.target.value;
+
+          if (keyword.length >= 2) {
+            filter(keyword);
+            generateList();
+            showList(keyword);
+          } else hideList();
+        };
+
+        const filter = (inputKeyword) =>
+          (list = keywords.filter(
+            (keyword) =>
+              startsWith(keyword, inputKeyword)
+          ));
+    </script>
+
+{% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

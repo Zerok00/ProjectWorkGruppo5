@@ -1,3 +1,6 @@
+import csv
+import json
+
 from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
@@ -62,5 +65,14 @@ def homepage():             #calcolare i valori AQI
     return render_template("index.html", iframe=iframe)
 
     #return Response(stream_template('index.html', iframe=iframe))
+
+@app.route("/prova_searchbar")
+def prova_searchbar():
+    lista_comuni = []
+    with open("comuni_search_bar.csv", "r", encoding="utf-8") as file:
+        lettore = csv.reader(file)
+        for elem in lettore:
+            lista_comuni.append(elem[0])
+    return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
 if __name__ == '__main__':
     app.run(debug=True)
