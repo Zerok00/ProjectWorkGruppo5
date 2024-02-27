@@ -71,9 +71,9 @@ def aqi_function(conc:dict):
 
     return aqi
 
-example = {"PM10 (SM2005)": 55.5, "Particelle sospese PM2.5": 58., "Ozono": 56., "Monossido di Carbonio": 12.,
-           "Biossido di Zolfo": 35.0, "Biossido di Azoto": 5.0}
-
-
-print(aqi_function(example))
+# example = {"PM10 (SM2005)": 55.5, "Particelle sospese PM2.5": 58., "Ozono": 56., "Monossido di Carbonio": 12.,
+#            "Biossido di Zolfo": 35.0, "Biossido di Azoto": 5.0}
+#
+#
+# print(aqi_function(example))
 
