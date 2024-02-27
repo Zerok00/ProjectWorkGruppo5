@@ -91,4 +91,4 @@ layout = dict(title='Yahoo', showlegend=False,
 
 fig = dict(data=data, layout=layout)
 plot(fig, filename='update_button')
-plot(fig)
+# plot(fig)
