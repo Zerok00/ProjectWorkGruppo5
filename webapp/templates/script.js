@@ -30,10 +30,11 @@ const hideList = () => {
 };
 
 const liTag = (value) =>
-  `<li class="list-group-item" onclick="funzione(${value})">${value}</li>`;
+  `<li class="list-group-item" onclick="funzione(this)">${value}</li>`;
 
-function funzione(value){
-        document.getElementById("barra_ricerca").innerHTML = value
+function funzione(list){
+        document.getElementById("barra_ricerca").value = list.innerHTML;
+        result.innerHTML = '';
     }
 
 const search = (e) => {
