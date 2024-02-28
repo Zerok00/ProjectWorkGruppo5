@@ -93,9 +93,8 @@ def crea_grafico():
     fig = dict(data=data, layout=layout)
     #plot(fig, filename='rilevazione.html')
 
+    with open("Plot 1.json", "r") as file:
+        dati_grafico = json.load(file)
 
-    # dataframe = pd.DataFrame(data)
-    #dati_jinja = {"fig": trace.to_html(full_html=False)}
-    #json_encoded = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return fig
+    return dati_grafico
     # plot(fig)
