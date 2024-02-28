@@ -12,16 +12,16 @@ print(lista)
 with open('Plot 4.json', 'r') as file:
     data = json.load(file)
 
-x = []
 y = []
+x = []
 
 for i in range(len(lista)):
     x.append(lista[i][0])
     y.append(lista[i][1])
 
 # Modify the JSON
-data['data']['x'] = x
-data['data']['y'] = y
+data['data'][0]['x'] = x
+data['data'][0]['y'] = y
 
 # Write the modified JSON data back to the file
 with open('Plot_4_modificato.json', 'w') as file:
