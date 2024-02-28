@@ -1,0 +1,16 @@
+Primary
+#4e73df
+Success
+#1cc88a
+Info
+#36b9cc
+Warning
+#f6c23e
+Danger
+#e74a3b
+Secondary
+#858796
+Light
+#f8f9fc
+Dark
+#5a5c69
