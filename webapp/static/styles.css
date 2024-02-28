@@ -127,3 +127,14 @@ div.flask-pagedown-preview h3 {
          top: 27%;
         position: absolute;
     }
+
+#box-jumbo {
+        width: 100%; /* Adjust as needed */
+        /* Uncomment the following lines if you want to center horizontally and/or vertically */
+        right: 0%;
+         top: 27%;
+        position: absolute;
+    }
+#accordionSidebar {
+position:fixed;
+}

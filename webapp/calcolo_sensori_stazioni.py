@@ -1,7 +1,7 @@
 import csv
 import mysql.connector
 #from migration.database_sql.modules import connect as conn
-
+import time
 DB_HOST = 'localhost'
 DB_USER = 'root'
 DB_PASSWORD = ''
@@ -36,18 +36,19 @@ def execute_fetchall(query, params=None, dict=False):
     return result
 
 def calcolo_stazioni():
-    query = "SELECT * FROM rilevazione ORDER BY id_rilevazione DESC;"
+    start = time.process_time()
+    print(start)
+    query = "SELECT * FROM rilevazione_desc;"
     result = execute_fetchall(query)
+    print("PRIMA QUERY", time.process_time() - start)
     diz_id = {}
     for elem in result:
         if elem[1] not in diz_id:
             diz_id[elem[1]] = elem[3]
 
-    query2 = """SELECT stazione.id_stazione, stazione.latitudine, stazione.longitudine, sensore.id_sensore, tipologia.nome
-    FROM stazione INNER JOIN sensore INNER JOIN tipologia
-    ON stazione.id_stazione = sensore.id_stazione AND sensore.id_tipologia = tipologia.id_tipologia
-    ORDER BY id_stazione;"""
+    query2 = """SELECT * FROM data_stazioni;"""
     sensori_per_stazione = execute_fetchall(query2)
+    print("SECONDA QUERY", time.process_time() - start)
 
     lista_finale = []
 
@@ -65,5 +66,8 @@ def calcolo_stazioni():
         dizionario_stazione_posizione_sensori[f"stazione{elem[0]}"]["coord"] = [elem[1], elem[2]]
         tupla = (elem[3], elem[4], elem[5])
         dizionario_stazione_posizione_sensori[f"stazione{elem[0]}"]["lista_sensori"].append(tupla)
+
+    print("TERZA QUERY", time.process_time() - start)
+
 
     return dizionario_stazione_posizione_sensori
