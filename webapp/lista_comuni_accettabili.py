@@ -1,21 +1,22 @@
 #Funzione per la creazione della lista dei comuni accettabili
 import csv
 # importing geopy library
-#from geopy.geocoders import Nominatim
+from geopy.geocoders import Nominatim
 # Importing the geodesic module from the library
-#from geopy.distance import geodesic
+from geopy.distance import geodesic
 
 with open('comuni_accettabili.txt', mode='r') as tsv_file:
     tsv_reader = csv.reader(tsv_file, delimiter='\t')
     next(tsv_reader)
     lista_comuni = list(tsv_reader)
 
-with open('comuni_search_bar.csv', mode='w', newline="") as file:
+with open('comuni_search_bar.csv', mode='w') as file:
     writer = csv.writer(file)
     for riga in lista_comuni:
         print(riga[0])
         writer.writerow([riga[0] + ", " + riga[1],])
 
+#
 # print(lista_comuni)
 # print(len(lista_comuni))
 

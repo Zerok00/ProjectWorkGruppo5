@@ -3,9 +3,6 @@
 from chart_studio import plotly as py
 import plotly.graph_objs as go
 import plotly.offline as pyoff
-#from plotly.offline import iplot
-from plotly.offline import plot
-
 
 from datetime import datetime
 import pandas as pd
@@ -90,5 +87,4 @@ layout = dict(title='Yahoo', showlegend=False,
               updatemenus=updatemenus)
 
 fig = dict(data=data, layout=layout)
-plot(fig, filename='update_button')
-# plot(fig)
+py.iplot(fig, filename='update_button')

@@ -9798,7 +9798,7 @@ a:focus {
 
 #wrapper #content-wrapper {
   background-color: #f8f9fc;
-  width: 100%;
+  width: 60%;
   overflow-x: hidden;
 }
 
@@ -10320,8 +10320,8 @@ a:focus {
 }
 
 .sidebar {
-  width: 6.5rem;
-  min-height: 100vh;
+  width: 19rem;
+  min-height: 200vh;
 }
 
 .sidebar .nav-item {
@@ -10509,7 +10509,7 @@ a:focus {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 14rem !important;
+    width: 19rem !important;
   }
   .sidebar .nav-item .collapse {
     position: relative;
