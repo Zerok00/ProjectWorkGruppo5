@@ -4,7 +4,9 @@ import json
 from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
+import grafico_media_mobile_tasti
 import folium
+import plotly
 
 app = Flask(__name__)
 
@@ -74,5 +76,12 @@ def prova_searchbar():
         for elem in lettore:
             lista_comuni.append(elem[0])
     return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
+
+@app.route("/grafico")
+def grafico():
+    fig = grafico_media_mobile_tasti.crea_grafico()
+    json_fig = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template("grafico.html", grafico=json_fig)
+
 if __name__ == '__main__':
     app.run(debug=True)
