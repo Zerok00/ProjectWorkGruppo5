@@ -11,10 +11,10 @@ df = pd.read_csv('rilevazione1.csv')
 print(df)
 #df.columns = [col.replace('AAPL.', '') for col in df.columns]
 
-trace = go.Scatter(x=list(df.data),
+trace = go.Bar(x=list(df.data),
                         y=list(df.valore),
                         name='Valore',
-                        marker=dict(color='#33CFA5'))
+                        marker=dict(color='#33CFA5'),)
 
 # trace_high_avg = go.Scatter(x=list(df.index),
 #                             y=[df.High.mean()]*len(df.index),
