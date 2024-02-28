@@ -1,0 +1,8 @@
+<p>Dear {{ user.mail }},</p>
+<p>Welcome to <b>PolluShow</b>!</p>
+<p>To confirm your account please <a href="{{ url_for('confirm', token=token, _external=True) }}">click here</a>.</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+<p>{{ url_for('confirm', token=token, _external=True) }}</p>
+<p>Sincerely,</p>
+<p>The DaPollution Team</p>
+<p><small>Note: Please, don't write to this e-mail.</small></p>
