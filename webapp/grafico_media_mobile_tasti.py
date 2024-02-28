@@ -33,7 +33,7 @@ trace = go.Scatter(x=list(df.data),
 #                            visible=False,
 #                            line=dict(color='#F06A6A', dash='dash'))
 
-data = [ trace, [], [], [] ]
+data = [ trace ]
 #
 # high_annotations=[dict(x='2016-03-01',
 #                        y=df.High.mean(),

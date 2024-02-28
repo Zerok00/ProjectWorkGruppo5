@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/grafico_media_mobile_tasti.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/grafico_media_mobile_tasti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/rilevazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/rilevazione.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/rilevazione1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/rilevazione1.csv" afterDir="false" />
-    </list>
+    <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
