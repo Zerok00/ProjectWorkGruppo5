@@ -2,13 +2,16 @@ import csv
 import json
 
 from flask import Flask, render_template, Response, stream_template
-"""import calcolo_sensori_stazioni
-import AQI_versione_definitiva"""
+import calcolo_sensori_stazioni
+import AQI_versione_definitiva
+import grafico_media_mobile_tasti
 import folium
+import plotly
 import os
 
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, make_response
 from flask_bootstrap import Bootstrap
+from flask_caching import Cache
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -65,10 +68,12 @@ app.config['DAPOLLUTION_MAIL_SENDER'] = 'Da pollution <dapollution@example.com>'
 app.config['POST'] = 10
 app.config['FOLLOWERS'] = 10
 app.config['COMMENTS'] = 10
+app.config['CACHE_TYPE'] = 'simple'
 mail = Mail()
 mail.init_app(app)
 
 pagedown = PageDown(app)
+cache = Cache(app)
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
@@ -491,19 +496,22 @@ def inject_permissions():
 @app.before_request
 def before_request():
     """db.drop_all()"""
-    """db.create_all()"""
-    """users()
-    posts()"""
+    #db.create_all()
+    #users()
+    #posts()
     if (not current_user.is_anonymous) and current_user.is_authenticated:
         current_user.ping()
         if not current_user.confirmed:
             flash("Please, confirm your mail.")
 
+# def user_data():
+
 
 @app.route('/', methods=['GET', 'POST'])
+@cache.cached(timeout=120)
 def index():
-    flash("Your name has changed")
-    Role.insert_roles()
+    #flash("Your name has changed")
+    #Role.insert_roles()
     form = PostForm()
     if current_user.can(Permission.WRITE) and form.validate_on_submit():
         post = Post(body=form.body.data,
@@ -522,65 +530,10 @@ def index():
     pagination = query.order_by(Post.timestamp.desc()).paginate(page=page, per_page=app.config['POST'], error_out=False)
     posts = pagination.items
     #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCOLO I
-    """dati_stazioni = calcolo_sensori_stazioni.calcolo_stazioni()
-        mappa = folium.Map([45.51, 9.75], zoom_start=8)
-        mappa.get_root().width = "100%"
-        mappa.get_root().height = "100%"
-        for elem in dati_stazioni:
-            diz_per_funzione = {}
-            for sensore in dati_stazioni[elem]["lista_sensori"]: #conversione nomi per funzione
-                if sensore[1] == "PM10 (SM2005)":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-                elif sensore[1] == "Particelle sospese PM2.5":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-                elif sensore[1] == "Biossido di Azoto":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-                elif sensore[1] == "Monossido di Carbonio":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-                elif sensore[1] == "Ozono":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-                elif sensore[1] == "Biossido di Zolfo":
-                    diz_per_funzione[sensore[1]] = sensore[2]
-            aqi = AQI_versione_definitiva.aqi_function(diz_per_funzione)
-            aqi["massimo"] = round(aqi["massimo"])
-            if aqi["massimo"] == "NULL":           #calcola markers
-                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                              icon=folium.Icon(color="lightgray", icon="xmark", prefix="fa"),
-                              tooltip="Non rilevato").add_to(mappa)
-            else:
-                if aqi["massimo"]<=50:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="blue", icon="face-smile-beam", prefix="fa"),
-                                  tooltip=f"Good\nAQI:{aqi["massimo"]}").add_to(mappa)
-                elif aqi["massimo"]>= 51 and aqi["massimo"]<= 100:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="green", icon="face-grin-wide", prefix="fa"),
-                                  tooltip=f"Moderate\nAQI:{aqi["massimo"]}").add_to(mappa)
-                elif aqi["massimo"]>= 101 and aqi["massimo"]<= 150:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="orange", icon="face-meh", prefix="fa"),
-                                  tooltip=f"Unhealthy for Sensitive Groups\nAQI:{aqi["massimo"]}").add_to(mappa)
-                elif aqi["massimo"]>= 151 and aqi["massimo"] <= 200:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="red", icon="face-frown-open", prefix="fa"),
-                                  tooltip=f"Unhealthy\nAQI:{aqi["massimo"]}").add_to(mappa)
-                elif aqi["massimo"]>= 201 and aqi["massimo"]<= 300:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="purple", icon="face-frown", prefix="fa"),
-                                  tooltip=f"Very Unhealthy\nAQI:{aqi["massimo"]}").add_to(mappa)
-                elif aqi["massimo"] >= 301:
-                    folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
-                                  icon=folium.Icon(color="darkred", icon="face-sad-tear", prefix="fa"),
-                                  tooltip=f"Hazardous\nAQI:{aqi["massimo"]}").add_to(mappa)
-        folium.GeoJson("../migration/database_sql/data/lombardy.geojson").add_to(mappa)
-        iframe = mappa.get_root()._repr_html_()
-        return render_template("index.html", iframe=iframe)"""
+    mappa = AQI_versione_definitiva.crea_mappa()
+    iframe = mappa.get_root()._repr_html_()
 
-    return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission)
-
-
-
-
+    return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission, iframe=iframe)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -889,6 +842,11 @@ def prova_searchbar():
             lista_comuni.append(elem[0])
     return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
 
+@app.route("/grafico")
+def grafico():
+    fig = grafico_media_mobile_tasti.crea_grafico()
+    json_fig = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template("grafico.html",Permission=Permission, grafico=json_fig)
 
 if __name__ == '__main__':
     app.run(debug=True)

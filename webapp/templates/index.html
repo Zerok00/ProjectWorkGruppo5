@@ -6,100 +6,101 @@
 {% block page_content %}
 
 <div>
- {% if current_user.is_authenticated %}
- {% if current_user.can(4) %}
+    {% if current_user.is_authenticated %}
+    {% if current_user.can(4) %}
     {{ wtf.quick_form(form) }}
- {% endif %}
- {% endif %}
+    {% endif %}
+    {% endif %}
 </div>
 <!-- Begin Page Content -->
-            <div class="container-fluid">
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                </div>
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            </div>
 
-                <!-- Content Row -->
-                <div class="row">
+            <!-- Content Row -->
+            <div class="row">
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col mb-4" id="box-dashboard">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Scheda utente
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Schema andamento settimanale
-                                            qui
-                                        </div>
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col mb-4" id="box-dashboard">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Scheda utente
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Schema andamento settimanale
+                                        qui
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Content Row -->
-
-                <div class="row">
-                    <!-- Area Chart -->
-                    <div class="col" id="box-map">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Mappa con indici AQI</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    {{iframe|safe}}
-                                </div>
-                                {% include '_posts.html' %}
-                                {% if pagination %}
-                                    <div class="pagination">
-                                     {{ macros.pagination_widget(pagination, '.index') }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5" id="box-legend">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Istruzioni mappa</h6>
-
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                1. Passa con il mouse sui segnalini per vedere info aggiuntive <br>
-                                2. Fai click su +/- o usa la rotella del mouse per aggiustare lo zoom <br>
-                                Legenda valori AQI:<br>
-                                AQI<=50 <i class="fas fa-fw fa-arrow-right"></i> Good<br>
-                                51<=AQI<=100 <i class="fas fa-fw fa-arrow-right"></i> Moderate<br>
-                                101<=AQI<=150 <i class="fas fa-fw fa-arrow-right"></i> Unhealthy for Sensitive Groups<br>
-                                151<=AQI<=200 <i class="fas fa-fw fa-arrow-right"></i> Unhealthy<br>
-                                201<=AQI<=300 <i class="fas fa-fw fa-arrow-right"></i> Very Unhealthy<br>
-                                AQI>=301 <i class="fas fa-fw fa-arrow-right"></i> Hazardous<br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Row -->
-                <div class="row">
-                    <!--Inserire qui elementi al di sotto della mappa-->
                 </div>
             </div>
-        </div>
 
+            <!-- Content Row -->
+
+            <div class="row">
+                <!-- Area Chart -->
+                <div class="col" id="box-map">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Mappa con indici AQI</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                {{iframe|safe}}
+                            </div>
+                            {% include '_posts.html' %}
+                            {% if pagination %}
+                            <div class="pagination">
+                                {{ macros.pagination_widget(pagination, '.index') }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pie Chart -->
+                <div class="col-xl-4 col-lg-5" id="box-legend">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Istruzioni mappa</h6>
+
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            1. Passa con il mouse sui segnalini per vedere info aggiuntive <br>
+                            2. Fai click su +/- o usa la rotella del mouse per aggiustare lo zoom <br>
+                            Legenda valori AQI:<br>
+                            AQI<=50 <i class="fas fa-fw fa-arrow-right"></i> Good<br>
+                            51<=AQI<=100 <i class="fas fa-fw fa-arrow-right"></i> Moderate<br>
+                            101<=AQI<=150 <i class="fas fa-fw fa-arrow-right"></i> Unhealthy for Sensitive Groups<br>
+                            151<=AQI<=200 <i class="fas fa-fw fa-arrow-right"></i> Unhealthy<br>
+                            201<=AQI<=300 <i class="fas fa-fw fa-arrow-right"></i> Very Unhealthy<br>
+                            AQI>=301 <i class="fas fa-fw fa-arrow-right"></i> Hazardous<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+                <!--Inserire qui elementi al di sotto della mappa-->
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 
