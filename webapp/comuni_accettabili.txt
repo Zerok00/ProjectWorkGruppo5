@@ -1,0 +1,1503 @@
+Comune	Provincia
+Adrara San Martino	Bergamo
+Adrara San Rocco	Bergamo
+Albano Sant'Alessandro	Bergamo
+Albino	Bergamo
+Algua	Bergamo
+Almè	Bergamo
+Almenno San Bartolomeo	Bergamo
+Almenno San Salvatore	Bergamo
+Alzano Lombardo	Bergamo
+Ambivere	Bergamo
+Antegnate	Bergamo
+Arcene	Bergamo
+Ardesio	Bergamo
+Arzago d'Adda	Bergamo
+Averara	Bergamo
+Aviatico	Bergamo
+Azzano San Paolo	Bergamo
+Azzone	Bergamo
+Bagnatica	Bergamo
+Barbata	Bergamo
+Bariano	Bergamo
+Barzana	Bergamo
+Bedulita	Bergamo
+Berbenno	Bergamo
+Bergamo	Bergamo
+Berzo San Fermo	Bergamo
+Bianzano	Bergamo
+Blello	Bergamo
+Bolgare	Bergamo
+Boltiere	Bergamo
+Bonate Sopra	Bergamo
+Bonate Sotto	Bergamo
+Borgo di Terzo	Bergamo
+Bossico	Bergamo
+Bottanuco	Bergamo
+Bracca	Bergamo
+Branzi	Bergamo
+Brembate	Bergamo
+Brembate di Sopra	Bergamo
+Brignano Gera d'Adda	Bergamo
+Brumano	Bergamo
+Brusaporto	Bergamo
+Calcinate	Bergamo
+Calcio	Bergamo
+Calusco d'Adda	Bergamo
+Calvenzano	Bergamo
+Camerata Cornello	Bergamo
+Canonica d'Adda	Bergamo
+Capizzone	Bergamo
+Capriate San Gervasio	Bergamo
+Caprino Bergamasco	Bergamo
+Caravaggio	Bergamo
+Carobbio degli Angeli	Bergamo
+Carona	Bergamo
+Carvico	Bergamo
+Casazza	Bergamo
+Casirate d'Adda	Bergamo
+Casnigo	Bergamo
+Cassiglio	Bergamo
+Castel Rozzone	Bergamo
+Castelli Calepio	Bergamo
+Castione della Presolana	Bergamo
+Castro	Bergamo
+Cavernago	Bergamo
+Cazzano Sant'Andrea	Bergamo
+Cenate Sopra	Bergamo
+Cenate Sotto	Bergamo
+Cene	Bergamo
+Cerete	Bergamo
+Chignolo d'Isola	Bergamo
+Chiuduno	Bergamo
+Cisano Bergamasco	Bergamo
+Ciserano	Bergamo
+Cividate al Piano	Bergamo
+Clusone	Bergamo
+Colere	Bergamo
+Cologno al Serio	Bergamo
+Colzate	Bergamo
+Comun Nuovo	Bergamo
+Corna Imagna	Bergamo
+Cornalba	Bergamo
+Cortenuova	Bergamo
+Costa di Mezzate	Bergamo
+Costa Serina	Bergamo
+Costa Valle Imagna	Bergamo
+Costa Volpino	Bergamo
+Covo	Bergamo
+Credaro	Bergamo
+Curno	Bergamo
+Cusio	Bergamo
+Dalmine	Bergamo
+Dossena	Bergamo
+Endine Gaiano	Bergamo
+Entratico	Bergamo
+Fara Gera d'Adda	Bergamo
+Fara Olivana con Sola	Bergamo
+Filago	Bergamo
+Fino del Monte	Bergamo
+Fiorano al Serio	Bergamo
+Fontanella	Bergamo
+Fonteno	Bergamo
+Foppolo	Bergamo
+Foresto Sparso	Bergamo
+Fornovo San Giovanni	Bergamo
+Fuipiano Valle Imagna	Bergamo
+Gandellino	Bergamo
+Gandino	Bergamo
+Gandosso	Bergamo
+Gaverina Terme	Bergamo
+Gazzaniga	Bergamo
+Ghisalba	Bergamo
+Gorlago	Bergamo
+Gorle	Bergamo
+Gorno	Bergamo
+Grassobbio	Bergamo
+Gromo	Bergamo
+Grone	Bergamo
+Grumello del Monte	Bergamo
+Isola di Fondra	Bergamo
+Isso	Bergamo
+Lallio	Bergamo
+Leffe	Bergamo
+Lenna	Bergamo
+Levate	Bergamo
+Locatello	Bergamo
+Lovere	Bergamo
+Lurano	Bergamo
+Luzzana	Bergamo
+Madone	Bergamo
+Mapello	Bergamo
+Martinengo	Bergamo
+Medolago	Bergamo
+Mezzoldo	Bergamo
+Misano di Gera d'Adda	Bergamo
+Moio de' Calvi	Bergamo
+Monasterolo del Castello	Bergamo
+Montello	Bergamo
+Morengo	Bergamo
+Mornico al Serio	Bergamo
+Mozzanica	Bergamo
+Mozzo	Bergamo
+Nembro	Bergamo
+Olmo al Brembo	Bergamo
+Oltre il Colle	Bergamo
+Oltressenda Alta	Bergamo
+Oneta	Bergamo
+Onore	Bergamo
+Orio al Serio	Bergamo
+Ornica	Bergamo
+Osio Sopra	Bergamo
+Osio Sotto	Bergamo
+Pagazzano	Bergamo
+Paladina	Bergamo
+Palazzago	Bergamo
+Palosco	Bergamo
+Parre	Bergamo
+Parzanica	Bergamo
+Pedrengo	Bergamo
+Peia	Bergamo
+Pianico	Bergamo
+Piario	Bergamo
+Piazza Brembana	Bergamo
+Piazzatorre	Bergamo
+Piazzolo	Bergamo
+Pognano	Bergamo
+Ponte Nossa	Bergamo
+Ponte San Pietro	Bergamo
+Ponteranica	Bergamo
+Pontida	Bergamo
+Pontirolo Nuovo	Bergamo
+Pradalunga	Bergamo
+Predore	Bergamo
+Premolo	Bergamo
+Presezzo	Bergamo
+Pumenengo	Bergamo
+Ranica	Bergamo
+Ranzanico	Bergamo
+Riva di Solto	Bergamo
+Rogno	Bergamo
+Romano di Lombardia	Bergamo
+Roncobello	Bergamo
+Roncola	Bergamo
+Rota d'Imagna	Bergamo
+Rovetta	Bergamo
+San Giovanni Bianco	Bergamo
+San Paolo d'Argon	Bergamo
+San Pellegrino Terme	Bergamo
+Santa Brigida	Bergamo
+Sant'Omobono Terme	Bergamo
+Sarnico	Bergamo
+Scanzorosciate	Bergamo
+Schilpario	Bergamo
+Sedrina	Bergamo
+Selvino	Bergamo
+Seriate	Bergamo
+Serina	Bergamo
+Solto Collina	Bergamo
+Solza	Bergamo
+Songavazzo	Bergamo
+Sorisole	Bergamo
+Sotto il Monte Giovanni XXIII	Bergamo
+Sovere	Bergamo
+Spinone al Lago	Bergamo
+Spirano	Bergamo
+Stezzano	Bergamo
+Strozza	Bergamo
+Suisio	Bergamo
+Taleggio	Bergamo
+Tavernola Bergamasca	Bergamo
+Telgate	Bergamo
+Terno d'Isola	Bergamo
+Torre Boldone	Bergamo
+Torre de' Busi	Bergamo
+Torre de' Roveri	Bergamo
+Torre Pallavicina	Bergamo
+Trescore Balneario	Bergamo
+Treviglio	Bergamo
+Treviolo	Bergamo
+Ubiale Clanezzo	Bergamo
+Urgnano	Bergamo
+Val Brembilla	Bergamo
+Valbondione	Bergamo
+Valbrembo	Bergamo
+Valgoglio	Bergamo
+Valleve	Bergamo
+Valnegra	Bergamo
+Valtorta	Bergamo
+Vedeseta	Bergamo
+Verdellino	Bergamo
+Verdello	Bergamo
+Vertova	Bergamo
+Viadanica	Bergamo
+Vigano San Martino	Bergamo
+Vigolo	Bergamo
+Villa d'Adda	Bergamo
+Villa d'Almè	Bergamo
+Villa di Serio	Bergamo
+Villa d'Ogna	Bergamo
+Villongo	Bergamo
+Vilminore di Scalve	Bergamo
+Zandobbio	Bergamo
+Zanica	Bergamo
+Zogno	Bergamo
+Acquafredda	Brescia
+Adro	Brescia
+Agnosine	Brescia
+Alfianello	Brescia
+Anfo	Brescia
+Angolo Terme	Brescia
+Artogne	Brescia
+Azzano Mella	Brescia
+Bagnolo Mella	Brescia
+Bagolino	Brescia
+Barbariga	Brescia
+Barghe	Brescia
+Bassano Bresciano	Brescia
+Bedizzole	Brescia
+Berlingo	Brescia
+Berzo Demo	Brescia
+Berzo Inferiore	Brescia
+Bienno	Brescia
+Bione	Brescia
+Borgo San Giacomo	Brescia
+Borgosatollo	Brescia
+Borno	Brescia
+Botticino	Brescia
+Bovegno	Brescia
+Bovezzo	Brescia
+Brandico	Brescia
+Braone	Brescia
+Breno	Brescia
+Brescia	Brescia
+Brione	Brescia
+Caino	Brescia
+Calcinato	Brescia
+Calvagese della Riviera	Brescia
+Calvisano	Brescia
+Capo di Ponte	Brescia
+Capovalle	Brescia
+Capriano del Colle	Brescia
+Capriolo	Brescia
+Carpenedolo	Brescia
+Castegnato	Brescia
+Castel Mella	Brescia
+Castelcovati	Brescia
+Castenedolo	Brescia
+Casto	Brescia
+Castrezzato	Brescia
+Cazzago San Martino	Brescia
+Cedegolo	Brescia
+Cellatica	Brescia
+Cerveno	Brescia
+Ceto	Brescia
+Cevo	Brescia
+Chiari	Brescia
+Cigole	Brescia
+Cimbergo	Brescia
+Cividate Camuno	Brescia
+Coccaglio	Brescia
+Collebeato	Brescia
+Collio	Brescia
+Cologne	Brescia
+Comezzano-Cizzago	Brescia
+Concesio	Brescia
+Corte Franca	Brescia
+Corteno Golgi	Brescia
+Corzano	Brescia
+Darfo Boario Terme	Brescia
+Dello	Brescia
+Desenzano del Garda	Brescia
+Edolo	Brescia
+Erbusco	Brescia
+Esine	Brescia
+Fiesse	Brescia
+Flero	Brescia
+Gambara	Brescia
+Gardone Riviera	Brescia
+Gardone Val Trompia	Brescia
+Gargnano	Brescia
+Gavardo	Brescia
+Ghedi	Brescia
+Gianico	Brescia
+Gottolengo	Brescia
+Gussago	Brescia
+Idro	Brescia
+Incudine	Brescia
+Irma	Brescia
+Iseo	Brescia
+Isorella	Brescia
+Lavenone	Brescia
+Leno	Brescia
+Limone sul Garda	Brescia
+Lodrino	Brescia
+Lograto	Brescia
+Lonato del Garda	Brescia
+Longhena	Brescia
+Losine	Brescia
+Lozio	Brescia
+Lumezzane	Brescia
+Maclodio	Brescia
+Magasa	Brescia
+Mairano	Brescia
+Malegno	Brescia
+Malonno	Brescia
+Manerba del Garda	Brescia
+Manerbio	Brescia
+Marcheno	Brescia
+Marmentino	Brescia
+Marone	Brescia
+Mazzano	Brescia
+Milzano	Brescia
+Moniga del Garda	Brescia
+Monno	Brescia
+Monte Isola	Brescia
+Monticelli Brusati	Brescia
+Montichiari	Brescia
+Montirone	Brescia
+Mura	Brescia
+Muscoline	Brescia
+Nave	Brescia
+Niardo	Brescia
+Nuvolento	Brescia
+Nuvolera	Brescia
+Odolo	Brescia
+Offlaga	Brescia
+Ome	Brescia
+Ono San Pietro	Brescia
+Orzinuovi	Brescia
+Orzivecchi	Brescia
+Ospitaletto	Brescia
+Ossimo	Brescia
+Padenghe sul Garda	Brescia
+Paderno Franciacorta	Brescia
+Paisco Loveno	Brescia
+Paitone	Brescia
+Palazzolo sull'Oglio	Brescia
+Paratico	Brescia
+Paspardo	Brescia
+Passirano	Brescia
+Pavone del Mella	Brescia
+Pertica Alta	Brescia
+Pertica Bassa	Brescia
+Pezzaze	Brescia
+Pian Camuno	Brescia
+Piancogno	Brescia
+Pisogne	Brescia
+Polaveno	Brescia
+Polpenazze del Garda	Brescia
+Pompiano	Brescia
+Poncarale	Brescia
+Ponte di Legno	Brescia
+Pontevico	Brescia
+Pontoglio	Brescia
+Pozzolengo	Brescia
+Pralboino	Brescia
+Preseglie	Brescia
+Prevalle	Brescia
+Provaglio d'Iseo	Brescia
+Provaglio Val Sabbia	Brescia
+Puegnago del Garda	Brescia
+Quinzano d'Oglio	Brescia
+Remedello	Brescia
+Rezzato	Brescia
+Roccafranca	Brescia
+Rodengo-Saiano	Brescia
+Roè Volciano	Brescia
+Roncadelle	Brescia
+Rovato	Brescia
+Rudiano	Brescia
+Sabbio Chiese	Brescia
+Sale Marasino	Brescia
+Salò	Brescia
+San Felice del Benaco	Brescia
+San Gervasio Bresciano	Brescia
+San Paolo	Brescia
+San Zeno Naviglio	Brescia
+Sarezzo	Brescia
+Saviore dell'Adamello	Brescia
+Sellero	Brescia
+Seniga	Brescia
+Serle	Brescia
+Sirmione	Brescia
+Soiano del Lago	Brescia
+Sonico	Brescia
+Sulzano	Brescia
+Tavernole sul Mella	Brescia
+Temù	Brescia
+Tignale	Brescia
+Torbole Casaglia	Brescia
+Toscolano Maderno	Brescia
+Travagliato	Brescia
+Tremosine sul Garda	Brescia
+Trenzano	Brescia
+Treviso Bresciano	Brescia
+Urago d'Oglio	Brescia
+Vallio Terme	Brescia
+Valvestino	Brescia
+Verolanuova	Brescia
+Verolavecchia	Brescia
+Vestone	Brescia
+Vezza d'Oglio	Brescia
+Villa Carcina	Brescia
+Villachiara	Brescia
+Villanuova sul Clisi	Brescia
+Vione	Brescia
+Visano	Brescia
+Vobarno	Brescia
+Zone	Brescia
+Alagna	Pavia
+Albonese	Pavia
+Albuzzano	Pavia
+Arena Po	Pavia
+Badia Pavese	Pavia
+Bagnaria	Pavia
+Barbianello	Pavia
+Bascapè	Pavia
+Bastida Pancarana	Pavia
+Battuda	Pavia
+Belgioioso	Pavia
+Bereguardo	Pavia
+Borgarello	Pavia
+Borgo Priolo	Pavia
+Borgo San Siro	Pavia
+Borgoratto Mormorolo	Pavia
+Bornasco	Pavia
+Bosnasco	Pavia
+Brallo di Pregola	Pavia
+Breme	Pavia
+Bressana Bottarone	Pavia
+Broni	Pavia
+Calvignano	Pavia
+Campospinoso Albaredo	Pavia
+Candia Lomellina	Pavia
+Canneto Pavese	Pavia
+Carbonara al Ticino	Pavia
+Casanova Lonati	Pavia
+Casatisma	Pavia
+Casei Gerola	Pavia
+Casorate Primo	Pavia
+Cassolnovo	Pavia
+Castana	Pavia
+Casteggio	Pavia
+Castelletto di Branduzzo	Pavia
+Castello d'Agogna	Pavia
+Castelnovetto	Pavia
+Cava Manara	Pavia
+Cecima	Pavia
+Ceranova	Pavia
+Ceretto Lomellina	Pavia
+Cergnago	Pavia
+Certosa di Pavia	Pavia
+Cervesina	Pavia
+Chignolo Po	Pavia
+Cigognola	Pavia
+Cilavegna	Pavia
+Codevilla	Pavia
+Colli Verdi	Pavia
+Confienza	Pavia
+Copiano	Pavia
+Corana	Pavia
+Cornale	Pavia
+Corteolona e Genzone	Pavia
+Corvino San Quirico	Pavia
+Costa de' Nobili	Pavia
+Cozzo	Pavia
+Cura Carpignano	Pavia
+Dorno	Pavia
+Ferrera Erbognone	Pavia
+Filighera	Pavia
+Fortunago	Pavia
+Frascarolo	Pavia
+Galliavola	Pavia
+Gambarana	Pavia
+Gambolò	Pavia
+Garlasco	Pavia
+Gerenzago	Pavia
+Giussago	Pavia
+Godiasco Salice Terme	Pavia
+Golferenzo	Pavia
+Gravellona Lomellina	Pavia
+Gropello Cairoli	Pavia
+Inverno e Monteleone	Pavia
+Landriano	Pavia
+Langosco	Pavia
+Lardirago	Pavia
+Linarolo	Pavia
+Lirio	Pavia
+Lomello	Pavia
+Lungavilla	Pavia
+Magherno	Pavia
+Marcignago	Pavia
+Marzano	Pavia
+Mede	Pavia
+Menconico	Pavia
+Mezzana Bigli	Pavia
+Mezzana Rabattone	Pavia
+Mezzanino	Pavia
+Miradolo Terme	Pavia
+Montalto Pavese	Pavia
+Montebello della Battaglia	Pavia
+Montecalvo Versiggia	Pavia
+Montescano	Pavia
+Montesegale	Pavia
+Monticelli Pavese	Pavia
+Montù Beccaria	Pavia
+Mornico Losana	Pavia
+Mortara	Pavia
+Nicorvo	Pavia
+Olevano di Lomellina	Pavia
+Oliva Gessi	Pavia
+Ottobiano	Pavia
+Palestro	Pavia
+Pancarana	Pavia
+Parona	Pavia
+Pavia	Pavia
+Pietra de' Giorgi	Pavia
+Pieve Albignola	Pavia
+Pieve del Cairo	Pavia
+Pieve Porto Morone	Pavia
+Pinarolo Po	Pavia
+Pizzale	Pavia
+Ponte Nizza	Pavia
+Portalbera	Pavia
+Rea	Pavia
+Redavalle	Pavia
+Retorbido	Pavia
+Rivanazzano Terme	Pavia
+Robbio	Pavia
+Robecco Pavese	Pavia
+Rocca de' Giorgi	Pavia
+Rocca Susella	Pavia
+Rognano	Pavia
+Romagnese	Pavia
+Roncaro	Pavia
+Rosasco	Pavia
+Rovescala	Pavia
+San Cipriano Po	Pavia
+San Damiano al Colle	Pavia
+San Genesio ed Uniti	Pavia
+San Giorgio di Lomellina	Pavia
+San Martino Siccomario	Pavia
+San Zenone al Po	Pavia
+Sannazzaro de' Burgondi	Pavia
+Santa Cristina e Bissone	Pavia
+Santa Giuletta	Pavia
+Santa Margherita di Staffora	Pavia
+Santa Maria della Versa	Pavia
+Sant'Alessio con Vialone	Pavia
+Sant'Angelo Lomellina	Pavia
+Sartirana Lomellina	Pavia
+Scaldasole	Pavia
+Semiana	Pavia
+Silvano Pietra	Pavia
+Siziano	Pavia
+Sommo	Pavia
+Spessa	Pavia
+Stradella	Pavia
+Suardi	Pavia
+Torrazza Coste	Pavia
+Torre Beretti e Castellaro	Pavia
+Torre d'Arese	Pavia
+Torre de' Negri	Pavia
+Torre d'Isola	Pavia
+Torrevecchia Pia	Pavia
+Torricella Verzate	Pavia
+Travacò Siccomario	Pavia
+Trivolzio	Pavia
+Tromello	Pavia
+Trovo	Pavia
+Val di Nizza	Pavia
+Valeggio	Pavia
+Valle Lomellina	Pavia
+Valle Salimbene	Pavia
+Varzi	Pavia
+Velezzo Lomellina	Pavia
+Vellezzo Bellini	Pavia
+Verretto	Pavia
+Verrua Po	Pavia
+Vidigulfo	Pavia
+Vigevano	Pavia
+Villa Biscossi	Pavia
+Villanova d'Ardenghi	Pavia
+Villanterio	Pavia
+Vistarino	Pavia
+Voghera	Pavia
+Volpara	Pavia
+Zavattarello	Pavia
+Zeccone	Pavia
+Zeme	Pavia
+Zenevredo	Pavia
+Zerbo	Pavia
+Zerbolò	Pavia
+Zinasco	Pavia
+Albavilla	Como
+Albese con Cassano	Como
+Albiolo	Como
+Alserio	Como
+Alta Valle Intelvi	Como
+Alzate Brianza	Como
+Anzano del Parco	Como
+Appiano Gentile	Como
+Argegno	Como
+Arosio	Como
+Asso	Como
+Barni	Como
+Bellagio	Como
+Bene Lario	Como
+Beregazzo con Figliaro	Como
+Binago	Como
+Bizzarone	Como
+Blessagno	Como
+Blevio	Como
+Bregnano	Como
+Brenna	Como
+Brienno	Como
+Brunate	Como
+Bulgarograsso	Como
+Cabiate	Como
+Cadorago	Como
+Caglio	Como
+Campione d'Italia	Como
+Cantù	Como
+Canzo	Como
+Capiago Intimiano	Como
+Carate Urio	Como
+Carbonate	Como
+Carimate	Como
+Carlazzo	Como
+Carugo	Como
+Caslino d'Erba	Como
+Casnate con Bernate	Como
+Cassina Rizzardi	Como
+Castelmarte	Como
+Castelnuovo Bozzente	Como
+Cavargna	Como
+Centro Valle Intelvi	Como
+Cerano d'Intelvi	Como
+Cermenate	Como
+Cernobbio	Como
+Cirimido	Como
+Claino con Osteno	Como
+Colonno	Como
+Colverde	Como
+Como	Como
+Corrido	Como
+Cremia	Como
+Cucciago	Como
+Cusino	Como
+Dizzasco	Como
+Domaso	Como
+Dongo	Como
+Dosso del Liro	Como
+Erba	Como
+Eupilio	Como
+Faggeto Lario	Como
+Faloppio	Como
+Fenegrò	Como
+Figino Serenza	Como
+Fino Mornasco	Como
+Garzeno	Como
+Gera Lario	Como
+Grandate	Como
+Grandola ed Uniti	Como
+Gravedona ed Uniti	Como
+Griante	Como
+Guanzate	Como
+Inverigo	Como
+Laglio	Como
+Laino	Como
+Lambrugo	Como
+Lasnigo	Como
+Lezzeno	Como
+Limido Comasco	Como
+Lipomo	Como
+Livo	Como
+Locate Varesino	Como
+Lomazzo	Como
+Longone al Segrino	Como
+Luisago	Como
+Lurago d'Erba	Como
+Lurago Marinone	Como
+Lurate Caccivio	Como
+Magreglio	Como
+Mariano Comense	Como
+Maslianico	Como
+Menaggio	Como
+Merone	Como
+Moltrasio	Como
+Monguzzo	Como
+Montano Lucino	Como
+Montemezzo	Como
+Montorfano	Como
+Mozzate	Como
+Musso	Como
+Nesso	Como
+Novedrate	Como
+Olgiate Comasco	Como
+Oltrona di San Mamette	Como
+Orsenigo	Como
+Peglio	Como
+Pianello del Lario	Como
+Pigra	Como
+Plesio	Como
+Pognana Lario	Como
+Ponna	Como
+Ponte Lambro	Como
+Porlezza	Como
+Proserpio	Como
+Pusiano	Como
+Rezzago	Como
+Rodero	Como
+Rovellasca	Como
+Rovello Porro	Como
+Sala Comacina	Como
+San Bartolomeo Val Cavargna	Como
+San Fermo della Battaglia	Como
+San Nazzaro Val Cavargna	Como
+San Siro	Como
+Schignano	Como
+Senna Comasco	Como
+Solbiate con Cagno	Como
+Sorico	Como
+Sormano	Como
+Stazzona	Como
+Tavernerio	Como
+Torno	Como
+Tremezzina	Como
+Trezzone	Como
+Turate	Como
+Uggiate con Ronago	Como
+Val Rezzo	Como
+Valbrona	Como
+Valmorea	Como
+Valsolda	Como
+Veleso	Como
+Veniano	Como
+Vercana	Como
+Vertemate con Minoprio	Como
+Villa Guardia	Como
+Zelbio	Como
+Agra	Varese
+Albizzate	Varese
+Angera	Varese
+Arcisate	Varese
+Arsago Seprio	Varese
+Azzate	Varese
+Azzio	Varese
+Barasso	Varese
+Bardello con Malgesso e Bregano	Varese
+Bedero Valcuvia	Varese
+Besano	Varese
+Besnate	Varese
+Besozzo	Varese
+Biandronno	Varese
+Bisuschio	Varese
+Bodio Lomnago	Varese
+Brebbia	Varese
+Brenta	Varese
+Brezzo di Bedero	Varese
+Brinzio	Varese
+Brissago-Valtravaglia	Varese
+Brunello	Varese
+Brusimpiano	Varese
+Buguggiate	Varese
+Busto Arsizio	Varese
+Cadegliano Viconago	Varese
+Cadrezzate con Osmate	Varese
+Cairate	Varese
+Cantello	Varese
+Caravate	Varese
+Cardano al Campo	Varese
+Carnago	Varese
+Caronno Pertusella	Varese
+Caronno Varesino	Varese
+Casale Litta	Varese
+Casalzuigno	Varese
+Casciago	Varese
+Casorate Sempione	Varese
+Cassano Magnago	Varese
+Cassano Valcuvia	Varese
+Castellanza	Varese
+Castello Cabiaglio	Varese
+Castelseprio	Varese
+Castelveccana	Varese
+Castiglione Olona	Varese
+Castronno	Varese
+Cavaria con Premezzo	Varese
+Cazzago Brabbia	Varese
+Cislago	Varese
+Cittiglio	Varese
+Clivio	Varese
+Cocquio-Trevisago	Varese
+Comabbio	Varese
+Comerio	Varese
+Cremenaga	Varese
+Crosio della Valle	Varese
+Cuasso al Monte	Varese
+Cugliate-Fabiasco	Varese
+Cunardo	Varese
+Curiglia con Monteviasco	Varese
+Cuveglio	Varese
+Cuvio	Varese
+Daverio	Varese
+Dumenza	Varese
+Duno	Varese
+Fagnano Olona	Varese
+Ferno	Varese
+Ferrera di Varese	Varese
+Gallarate	Varese
+Galliate Lombardo	Varese
+Gavirate	Varese
+Gazzada Schianno	Varese
+Gemonio	Varese
+Gerenzano	Varese
+Germignaga	Varese
+Golasecca	Varese
+Gorla Maggiore	Varese
+Gorla Minore	Varese
+Gornate Olona	Varese
+Grantola	Varese
+Inarzo	Varese
+Induno Olona	Varese
+Ispra	Varese
+Jerago con Orago	Varese
+Lavena Ponte Tresa	Varese
+Laveno-Mombello	Varese
+Leggiuno	Varese
+Lonate Ceppino	Varese
+Lonate Pozzolo	Varese
+Lozza	Varese
+Luino	Varese
+Luvinate	Varese
+Maccagno con Pino e Veddasca	Varese
+Malnate	Varese
+Marchirolo	Varese
+Marnate	Varese
+Marzio	Varese
+Masciago Primo	Varese
+Mercallo	Varese
+Mesenzana	Varese
+Montegrino Valtravaglia	Varese
+Monvalle	Varese
+Morazzone	Varese
+Mornago	Varese
+Oggiona con Santo Stefano	Varese
+Olgiate Olona	Varese
+Origgio	Varese
+Orino	Varese
+Porto Ceresio	Varese
+Porto Valtravaglia	Varese
+Rancio Valcuvia	Varese
+Ranco	Varese
+Saltrio	Varese
+Samarate	Varese
+Sangiano	Varese
+Saronno	Varese
+Sesto Calende	Varese
+Solbiate Arno	Varese
+Solbiate Olona	Varese
+Somma Lombardo	Varese
+Sumirago	Varese
+Taino	Varese
+Ternate	Varese
+Tradate	Varese
+Travedona Monate	Varese
+Tronzano Lago Maggiore	Varese
+Uboldo	Varese
+Valganna	Varese
+Varano Borghi	Varese
+Varese	Varese
+Vedano Olona	Varese
+Venegono Inferiore	Varese
+Venegono Superiore	Varese
+Vergiate	Varese
+Viggiù	Varese
+Vizzola Ticino	Varese
+Abbiategrasso	Milano
+Albairate	Milano
+Arconate	Milano
+Arese	Milano
+Arluno	Milano
+Assago	Milano
+Baranzate	Milano
+Bareggio	Milano
+Basiano	Milano
+Basiglio	Milano
+Bellinzago Lombardo	Milano
+Bernate Ticino	Milano
+Besate	Milano
+Binasco	Milano
+Boffalora sopra Ticino	Milano
+Bollate	Milano
+Bresso	Milano
+Bubbiano	Milano
+Buccinasco	Milano
+Buscate	Milano
+Bussero	Milano
+Busto Garolfo	Milano
+Calvignasco	Milano
+Cambiago	Milano
+Canegrate	Milano
+Carpiano	Milano
+Carugate	Milano
+Casarile	Milano
+Casorezzo	Milano
+Cassano d'Adda	Milano
+Cassina de' Pecchi	Milano
+Cassinetta di Lugagnano	Milano
+Castano Primo	Milano
+Cernusco sul Naviglio	Milano
+Cerro al Lambro	Milano
+Cerro Maggiore	Milano
+Cesano Boscone	Milano
+Cesate	Milano
+Cinisello Balsamo	Milano
+Cisliano	Milano
+Cologno Monzese	Milano
+Colturano	Milano
+Corbetta	Milano
+Cormano	Milano
+Cornaredo	Milano
+Corsico	Milano
+Cuggiono	Milano
+Cusago	Milano
+Cusano Milanino	Milano
+Dairago	Milano
+Dresano	Milano
+Gaggiano	Milano
+Garbagnate Milanese	Milano
+Gessate	Milano
+Gorgonzola	Milano
+Grezzago	Milano
+Gudo Visconti	Milano
+Inveruno	Milano
+Inzago	Milano
+Lacchiarella	Milano
+Lainate	Milano
+Legnano	Milano
+Liscate	Milano
+Locate di Triulzi	Milano
+Magenta	Milano
+Magnago	Milano
+Marcallo con Casone	Milano
+Masate	Milano
+Mediglia	Milano
+Melegnano	Milano
+Melzo	Milano
+Mesero	Milano
+Milano	Milano
+Morimondo	Milano
+Motta Visconti	Milano
+Nerviano	Milano
+Nosate	Milano
+Novate Milanese	Milano
+Noviglio	Milano
+Opera	Milano
+Ossona	Milano
+Ozzero	Milano
+Paderno Dugnano	Milano
+Pantigliate	Milano
+Parabiago	Milano
+Paullo	Milano
+Pero	Milano
+Peschiera Borromeo	Milano
+Pessano con Bornago	Milano
+Pieve Emanuele	Milano
+Pioltello	Milano
+Pogliano Milanese	Milano
+Pozzo d'Adda	Milano
+Pozzuolo Martesana	Milano
+Pregnana Milanese	Milano
+Rescaldina	Milano
+Rho	Milano
+Robecchetto con Induno	Milano
+Robecco sul Naviglio	Milano
+Rodano	Milano
+Rosate	Milano
+Rozzano	Milano
+San Colombano al Lambro	Milano
+San Donato Milanese	Milano
+San Giorgio su Legnano	Milano
+San Giuliano Milanese	Milano
+San Vittore Olona	Milano
+San Zenone al Lambro	Milano
+Santo Stefano Ticino	Milano
+Sedriano	Milano
+Segrate	Milano
+Senago	Milano
+Sesto San Giovanni	Milano
+Settala	Milano
+Settimo Milanese	Milano
+Solaro	Milano
+Trezzano Rosa	Milano
+Trezzano sul Naviglio	Milano
+Trezzo sull'Adda	Milano
+Tribiano	Milano
+Truccazzano	Milano
+Turbigo	Milano
+Vanzaghello	Milano
+Vanzago	Milano
+Vaprio d'Adda	Milano
+Vermezzo con Zelo	Milano
+Vernate	Milano
+Vignate	Milano
+Villa Cortese	Milano
+Vimodrone	Milano
+Vittuone	Milano
+Vizzolo Predabissi	Milano
+Zibido San Giacomo	Milano
+Acquanegra Cremonese	Cremona
+Agnadello	Cremona
+Annicco	Cremona
+Azzanello	Cremona
+Bagnolo Cremasco	Cremona
+Bonemerse	Cremona
+Bordolano	Cremona
+Calvatone	Cremona
+Camisano	Cremona
+Campagnola Cremasca	Cremona
+Capergnanica	Cremona
+Cappella Cantone	Cremona
+Cappella de' Picenardi	Cremona
+Capralba	Cremona
+Casalbuttano ed Uniti	Cremona
+Casale Cremasco-Vidolasco	Cremona
+Casaletto Ceredano	Cremona
+Casaletto di Sopra	Cremona
+Casaletto Vaprio	Cremona
+Casalmaggiore	Cremona
+Casalmorano	Cremona
+Castel Gabbiano	Cremona
+Casteldidone	Cremona
+Castelleone	Cremona
+Castelverde	Cremona
+Castelvisconti	Cremona
+Cella Dati	Cremona
+Chieve	Cremona
+Cicognolo	Cremona
+Cingia de' Botti	Cremona
+Corte de' Cortesi con Cignone	Cremona
+Corte de' Frati	Cremona
+Credera Rubbiano	Cremona
+Crema	Cremona
+Cremona	Cremona
+Cremosano	Cremona
+Crotta d'Adda	Cremona
+Cumignano sul Naviglio	Cremona
+Derovere	Cremona
+Dovera	Cremona
+Fiesco	Cremona
+Formigara	Cremona
+Gabbioneta-Binanuova	Cremona
+Gadesco-Pieve Delmona	Cremona
+Genivolta	Cremona
+Gerre de' Caprioli	Cremona
+Gombito	Cremona
+Grontardo	Cremona
+Grumello Cremonese ed Uniti	Cremona
+Gussola	Cremona
+Isola Dovarese	Cremona
+Izano	Cremona
+Madignano	Cremona
+Malagnino	Cremona
+Martignana di Po	Cremona
+Monte Cremasco	Cremona
+Montodine	Cremona
+Moscazzano	Cremona
+Motta Baluffi	Cremona
+Offanengo	Cremona
+Olmeneta	Cremona
+Ostiano	Cremona
+Paderno Ponchielli	Cremona
+Palazzo Pignano	Cremona
+Pandino	Cremona
+Persico Dosimo	Cremona
+Pescarolo ed Uniti	Cremona
+Pessina Cremonese	Cremona
+Piadena Drizzona	Cremona
+Pianengo	Cremona
+Pieranica	Cremona
+Pieve d'Olmi	Cremona
+Pieve San Giacomo	Cremona
+Pizzighettone	Cremona
+Pozzaglio ed Uniti	Cremona
+Quintano	Cremona
+Ricengo	Cremona
+Ripalta Arpina	Cremona
+Ripalta Cremasca	Cremona
+Ripalta Guerina	Cremona
+Rivarolo del Re ed Uniti	Cremona
+Rivolta d'Adda	Cremona
+Robecco d'Oglio	Cremona
+Romanengo	Cremona
+Salvirola	Cremona
+San Bassano	Cremona
+San Daniele Po	Cremona
+San Giovanni in Croce	Cremona
+San Martino del Lago	Cremona
+Scandolara Ravara	Cremona
+Scandolara Ripa d'Oglio	Cremona
+Sergnano	Cremona
+Sesto ed Uniti	Cremona
+Solarolo Rainerio	Cremona
+Soncino	Cremona
+Soresina	Cremona
+Sospiro	Cremona
+Spinadesco	Cremona
+Spineda	Cremona
+Spino d'Adda	Cremona
+Stagno Lombardo	Cremona
+Ticengo	Cremona
+Torlino Vimercati	Cremona
+Tornata	Cremona
+Torre de' Picenardi	Cremona
+Torricella del Pizzo	Cremona
+Trescore Cremasco	Cremona
+Trigolo	Cremona
+Vaiano Cremasco	Cremona
+Vailate	Cremona
+Vescovato	Cremona
+Volongo	Cremona
+Voltido	Cremona
+Abbadia Lariana	Lecco
+Airuno	Lecco
+Annone di Brianza	Lecco
+Ballabio	Lecco
+Barzago	Lecco
+Barzanò	Lecco
+Barzio	Lecco
+Bellano	Lecco
+Bosisio Parini	Lecco
+Brivio	Lecco
+Bulciago	Lecco
+Calco	Lecco
+Calolziocorte	Lecco
+Carenno	Lecco
+Casargo	Lecco
+Casatenovo	Lecco
+Cassago Brianza	Lecco
+Cassina Valsassina	Lecco
+Castello di Brianza	Lecco
+Cernusco Lombardone	Lecco
+Cesana Brianza	Lecco
+Civate	Lecco
+Colico	Lecco
+Colle Brianza	Lecco
+Cortenova	Lecco
+Costa Masnaga	Lecco
+Crandola Valsassina	Lecco
+Cremella	Lecco
+Cremeno	Lecco
+Dervio	Lecco
+Dolzago	Lecco
+Dorio	Lecco
+Ello	Lecco
+Erve	Lecco
+Esino Lario	Lecco
+Galbiate	Lecco
+Garbagnate Monastero	Lecco
+Garlate	Lecco
+Imbersago	Lecco
+Introbio	Lecco
+La Valletta Brianza	Lecco
+Lecco	Lecco
+Lierna	Lecco
+Lomagna	Lecco
+Malgrate	Lecco
+Mandello del Lario	Lecco
+Margno	Lecco
+Merate	Lecco
+Missaglia	Lecco
+Moggio	Lecco
+Molteno	Lecco
+Monte Marenzo	Lecco
+Montevecchia	Lecco
+Monticello Brianza	Lecco
+Morterone	Lecco
+Nibionno	Lecco
+Oggiono	Lecco
+Olgiate Molgora	Lecco
+Olginate	Lecco
+Oliveto Lario	Lecco
+Osnago	Lecco
+Paderno d'Adda	Lecco
+Pagnona	Lecco
+Parlasco	Lecco
+Pasturo	Lecco
+Perledo	Lecco
+Pescate	Lecco
+Premana	Lecco
+Primaluna	Lecco
+Robbiate	Lecco
+Rogeno	Lecco
+Santa Maria Hoè	Lecco
+Sirone	Lecco
+Sirtori	Lecco
+Sueglio	Lecco
+Suello	Lecco
+Taceno	Lecco
+Valgreghentino	Lecco
+Valmadrera	Lecco
+Valvarrone	Lecco
+Varenna	Lecco
+Vercurago	Lecco
+Verderio	Lecco
+Viganò	Lecco
+Albaredo per San Marco	Sondrio
+Albosaggia	Sondrio
+Andalo Valtellino	Sondrio
+Aprica	Sondrio
+Ardenno	Sondrio
+Bema	Sondrio
+Berbenno di Valtellina	Sondrio
+Bianzone	Sondrio
+Bormio	Sondrio
+Buglio in Monte	Sondrio
+Caiolo	Sondrio
+Campodolcino	Sondrio
+Caspoggio	Sondrio
+Castello dell'Acqua	Sondrio
+Castione Andevenno	Sondrio
+Cedrasco	Sondrio
+Cercino	Sondrio
+Chiavenna	Sondrio
+Chiesa in Valmalenco	Sondrio
+Chiuro	Sondrio
+Cino	Sondrio
+Civo	Sondrio
+Colorina	Sondrio
+Cosio Valtellino	Sondrio
+Dazio	Sondrio
+Delebio	Sondrio
+Dubino	Sondrio
+Faedo Valtellino	Sondrio
+Forcola	Sondrio
+Fusine	Sondrio
+Gerola Alta	Sondrio
+Gordona	Sondrio
+Grosio	Sondrio
+Grosotto	Sondrio
+Lanzada	Sondrio
+Livigno	Sondrio
+Lovero	Sondrio
+Madesimo	Sondrio
+Mantello	Sondrio
+Mazzo di Valtellina	Sondrio
+Mello	Sondrio
+Mese	Sondrio
+Montagna in Valtellina	Sondrio
+Morbegno	Sondrio
+Novate Mezzola	Sondrio
+Pedesina	Sondrio
+Piantedo	Sondrio
+Piateda	Sondrio
+Piuro	Sondrio
+Poggiridenti	Sondrio
+Ponte in Valtellina	Sondrio
+Postalesio	Sondrio
+Prata Camportaccio	Sondrio
+Rasura	Sondrio
+Rogolo	Sondrio
+Samolaco	Sondrio
+San Giacomo Filippo	Sondrio
+Sernio	Sondrio
+Sondalo	Sondrio
+Sondrio	Sondrio
+Spriana	Sondrio
+Talamona	Sondrio
+Tartano	Sondrio
+Teglio	Sondrio
+Tirano	Sondrio
+Torre di Santa Maria	Sondrio
+Tovo di Sant'Agata	Sondrio
+Traona	Sondrio
+Tresivio	Sondrio
+Val Masino	Sondrio
+Valdidentro	Sondrio
+Valdisotto	Sondrio
+Valfurva	Sondrio
+Verceia	Sondrio
+Vervio	Sondrio
+Villa di Chiavenna	Sondrio
+Villa di Tirano	Sondrio
+Acquanegra sul Chiese	Mantova
+Asola	Mantova
+Bagnolo San Vito	Mantova
+Borgocarbonara	Mantova
+Borgo Mantovano	Mantova
+Borgo Virgilio	Mantova
+Bozzolo	Mantova
+Canneto sull'Oglio	Mantova
+Casalmoro	Mantova
+Casaloldo	Mantova
+Casalromano	Mantova
+Castel d'Ario	Mantova
+Castel Goffredo	Mantova
+Castelbelforte	Mantova
+Castellucchio	Mantova
+Castiglione delle Stiviere	Mantova
+Cavriana	Mantova
+Ceresara	Mantova
+Commessaggio	Mantova
+Curtatone	Mantova
+Dosolo	Mantova
+Gazoldo degli Ippoliti	Mantova
+Gazzuolo	Mantova
+Goito	Mantova
+Gonzaga	Mantova
+Guidizzolo	Mantova
+Magnacavallo	Mantova
+Mantova	Mantova
+Marcaria	Mantova
+Mariana Mantovana	Mantova
+Marmirolo	Mantova
+Medole	Mantova
+Moglia	Mantova
+Monzambano	Mantova
+Motteggiana	Mantova
+Ostiglia	Mantova
+Pegognaga	Mantova
+Piubega	Mantova
+Poggio Rusco	Mantova
+Pomponesco	Mantova
+Ponti sul Mincio	Mantova
+Porto Mantovano	Mantova
+Quingentole	Mantova
+Quistello	Mantova
+Redondesco	Mantova
+Rivarolo Mantovano	Mantova
+Rodigo	Mantova
+Roncoferraro	Mantova
+Roverbella	Mantova
+Sabbioneta	Mantova
+San Benedetto Po	Mantova
+San Giacomo delle Segnate	Mantova
+San Giorgio Bigarello	Mantova
+San Giovanni del Dosso	Mantova
+San Martino dall'Argine	Mantova
+Schivenoglia	Mantova
+Sermide e Felonica	Mantova
+Serravalle a Po	Mantova
+Solferino	Mantova
+Sustinente	Mantova
+Suzzara	Mantova
+Viadana	Mantova
+Villimpenta	Mantova
+Volta Mantovana	Mantova
+Abbadia Cerreto	Lodi
+Agrate Brianza	Monza e Brianza
+Aicurzio	Monza e Brianza
+Albiate	Monza e Brianza
+Arcore	Monza e Brianza
+Barlassina	Monza e Brianza
+Bellusco	Monza e Brianza
+Bernareggio	Monza e Brianza
+Bertonico	Lodi
+Besana in Brianza	Monza e Brianza
+Biassono	Monza e Brianza
+Boffalora d'Adda	Lodi
+Borghetto Lodigiano	Lodi
+Borgo San Giovanni	Lodi
+Bovisio Masciago	Monza e Brianza
+Brembio	Lodi
+Briosco	Monza e Brianza
+Brugherio	Monza e Brianza
+Burago di Molgora	Monza e Brianza
+Busnago	Monza e Brianza
+Camparada	Monza e Brianza
+Caponago	Monza e Brianza
+Carate Brianza	Monza e Brianza
+Carnate	Monza e Brianza
+Casaletto Lodigiano	Lodi
+Casalmaiocco	Lodi
+Casalpusterlengo	Lodi
+Caselle Landi	Lodi
+Caselle Lurani	Lodi
+Castelgerundo	Lodi
+Castelnuovo Bocca d'Adda	Lodi
+Castiglione d'Adda	Lodi
+Castiraga Vidardo	Lodi
+Cavenago d'Adda	Lodi
+Cavenago di Brianza	Monza e Brianza
+Ceriano Laghetto	Monza e Brianza
+Cervignano d'Adda	Lodi
+Cesano Maderno	Monza e Brianza
+Codogno	Lodi
+Cogliate	Monza e Brianza
+Comazzo	Lodi
+Concorezzo	Monza e Brianza
+Cornate d'Adda	Monza e Brianza
+Cornegliano Laudense	Lodi
+Corno Giovine	Lodi
+Cornovecchio	Lodi
+Correzzana	Monza e Brianza
+Corte Palasio	Lodi
+Crespiatica	Lodi
+Desio	Monza e Brianza
+Fombio	Lodi
+Galgagnano	Lodi
+Giussano	Monza e Brianza
+Graffignana	Lodi
+Guardamiglio	Lodi
+Lazzate	Monza e Brianza
+Lentate sul Seveso	Monza e Brianza
+Lesmo	Monza e Brianza
+Limbiate	Monza e Brianza
+Lissone	Monza e Brianza
+Livraga	Lodi
+Lodi	Lodi
+Lodi Vecchio	Lodi
+Maccastorna	Lodi
+Macherio	Monza e Brianza
+Mairago	Lodi
+Maleo	Lodi
+Marudo	Lodi
+Massalengo	Lodi
+Meda	Monza e Brianza
+Meleti	Lodi
+Merlino	Lodi
+Mezzago	Monza e Brianza
+Misinto	Monza e Brianza
+Montanaso Lombardo	Lodi
+Monza	Monza e Brianza
+Muggiò	Monza e Brianza
+Mulazzano	Lodi
+Nova Milanese	Monza e Brianza
+Orio Litta	Lodi
+Ornago	Monza e Brianza
+Ospedaletto Lodigiano	Lodi
+Ossago Lodigiano	Lodi
+Pieve Fissiraga	Lodi
+Renate	Monza e Brianza
+Roncello	Monza e Brianza
+Ronco Briantino	Monza e Brianza
+Salerano sul Lambro	Lodi
+San Fiorano	Lodi
+San Martino in Strada	Lodi
+San Rocco al Porto	Lodi
+Sant'Angelo Lodigiano	Lodi
+Santo Stefano Lodigiano	Lodi
+Secugnago	Lodi
+Senna Lodigiana	Lodi
+Seregno	Monza e Brianza
+Seveso	Monza e Brianza
+Somaglia	Lodi
+Sordio	Lodi
+Sovico	Monza e Brianza
+Sulbiate	Monza e Brianza
+Tavazzano con Villavesco	Lodi
+Terranova dei Passerini	Lodi
+Triuggio	Monza e Brianza
+Turano Lodigiano	Lodi
+Usmate Velate	Monza e Brianza
+Valera Fratta	Lodi
+Varedo	Monza e Brianza
+Vedano al Lambro	Monza e Brianza
+Veduggio con Colzano	Monza e Brianza
+Verano Brianza	Monza e Brianza
+Villanova del Sillaro	Lodi
+Villasanta	Monza e Brianza
+Vimercate	Monza e Brianza
+Zelo Buon Persico	Lodi
