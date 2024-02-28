@@ -15,7 +15,7 @@ dati stazioni:
     -       4 : NomeStazione
     4   5 : Quota
     5   6 : Provincia
-    6   7 : ComuneI
+    6   7 : Comune
     -       8 : Storico
     -       9 : DataStart
     -       10 : DataStop
@@ -47,53 +47,120 @@ import modules.connect
 import mysql.connector
 import time
 
-def clean_csv_stazioni(path, new_file_name='data_clean/dataset_pulito_stazioni.csv', execute=False):
+def clean_csv_stazioni(path, new_file_name=f'data_clean/dataset_pulito_stazioni.csv', i="", execute=False):
+    # creo path per nuovo file
+    new_path = path.split('\\')
+    new_path[-1] = new_file_name
+    new_path = "/".join(new_path)
+    new_path = new_path.split(".")
+    new_path = new_path[-2] + i + "." + new_path[-1]
+    
     if execute:
-        # creo path per nuovo file
-        new_path = path.split('\\')
-        new_path[-1] = new_file_name
-        new_path = "/".join(new_path)
-        
         #tolgo sensori che hanno smesso di funzionare e seleziono righe
         df = pd.read_csv(path)
 
         df.loc[df["Quota"].isnull(), "Quota"] = 0 #correzione per quota schivenoglia malpasso........
 
-        df = df[df['DataStop'].isnull()]
-        df = df.loc[:, [
-            'IdSensore',
-            'NomeTipoSensore',
-            'UnitaMisura',
-            'Idstazione',
-            'Quota',
-            'Provincia',
-            'Comune',
-            'lat',
-            'lng'
-        ]]
+        # se ho campo NomeTipoSensore, unico delle stazioni inquinamento
+        if 'NomeTipoSensore' in df:
+            df.rename(columns={'Idstazione': 'IdStazione'}, inplace=True)
+            df = df[df['DataStop'].isnull()]
+            df = df.loc[:, [
+                'IdSensore',
+                'NomeTipoSensore',
+                'UnitaMisura',
+                'IdStazione',
+                'Quota',
+                'Provincia',
+                'Comune',
+                'lat',
+                'lng'
+            ]]
+
+        if 'Tipologia' in df:
+            df.rename(columns={
+                'Unità DiMisura' : 'UnitaMisura', 
+                'Tipologia' : 'NomeTipoSensore', 
+                'NomeStazione' : 'Comune'}, 
+                inplace=True)
+            
+            lista_descrizioni = [
+                " v.", " via", " Via", " viale", " P.zza", " p.zza", " SS", " SP", " campo", " Campo", 
+                " cascina", " Passo", " Parco", " Monte",  " Case", " rifugio", " Piani", 
+                " ponte", " -", " ENEL", " tetto", " eliporto", " Cav", " Poggio", 
+                " centro", "Cascina", " Ist.", " Lago", " Acquedotto", " JRC", " SMR"
+            ]
+            
+            for i, row in df.iterrows():
+                for elem in lista_descrizioni:
+                    comune = row['Comune'].split(elem)
+                    if len(comune) >= 2:
+                        comune = comune[0]
+                        break
+                    else:
+                        comune = str(comune).strip("[]'\" ")
+
+                df.loc[i, "Comune"] = comune
+            
+            df = df[df['Comune'] != ""]
+
+            df = df.loc[:, [
+                'IdSensore',
+                'NomeTipoSensore',
+                'UnitaMisura',
+                'IdStazione',
+                'Quota',
+                'Provincia',
+                'Comune',
+                'lat',
+                'lng'
+            ]]
+
         df.to_csv(new_path, index=False)
 
-        return new_path
+    return new_path
 
 
-def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dataset_pulito_rilevazioni.csv', execute=False):
-        new_path = path.split('\\')
-        new_path[-1] = new_file_name
-        new_path = "/".join(new_path)
+def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dataset_pulito_rilevazioni.csv', i="", execute=False):
+    new_path = path.split('\\')
+    new_path[-1] = new_file_name
+    new_path = "/".join(new_path)
+    new_path = new_path.split(".")
+    new_path = new_path[-2] + i + "." + new_path[-1]
 
-        df_rilevazioni = pd.read_csv(path)
+    if execute:    
         df_stazioni = pd.read_csv(path_csv_stazioni)
+        df_rilevazioni_tot = pd.read_csv(path, dtype={
+            'IdSensore':'int32', 
+            'Data': 'object', 
+            'Valore':'float32', 
+            'Stato':'str', 
+            'IdOperatore':'int8'}, chunksize=4000000)
 
-        # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
-        df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
-        df = df.loc[:, [
-            'IdSensore',
-            'Data',
-            'Valore'
-        ]]
-        df = df[df['Valore'] != -9999]
+        # svuoto csv per permettere di eseguire append alla fine di ognuno dei successivi for 
+        df = pd.DataFrame()
+        df_concat = pd.DataFrame()
+        df.to_csv(new_path, index=False)
 
-        filtro_frequenze = df.copy()
+        # garantisco presenza di solo un header mettendolo false al primo ciclo
+        header = True
+        for df_rilevazioni in df_rilevazioni_tot:
+            # tolgo sensori senza corrispondenze nella tabella stazioni, seleziono colonne e solo righe con rilevamenti validi
+            df = df_rilevazioni[df_rilevazioni['IdSensore'].isin(df_stazioni['IdSensore'])]
+
+            df = df[(df['idOperatore'] != 3) & (df['idOperatore'] != 4)]
+
+            df = df.loc[:, [
+                'IdSensore',
+                'Data',
+                'Valore'
+            ]]
+
+            df = df[(df['Valore'] != -9999) & (df['Valore'] != -999)]
+
+            df_concat = pd.concat([df_concat, df])
+
+        filtro_frequenze = df_concat.copy()
         # ottengo una serie che raggruppa la somma delle rilevazioni per sensore
         filtro_frequenze = filtro_frequenze.groupby(['IdSensore'])['IdSensore'].count()
         # ritrasformo la serie in dataframe
@@ -105,7 +172,6 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
         ]]
 
         filtro_sequenze = pd.merge(filtro_frequenze, tipo_sensore, on='IdSensore', how='left')
-
         # filtro database togliendo sensori funzionanti ma con rilevazioni parziali
         filtro_sequenze = filtro_sequenze[
             (((filtro_sequenze['NomeTipoSensore'] == 'Biossido di Azoto') 
@@ -119,16 +185,33 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
             | (filtro_sequenze['NomeTipoSensore'] == 'Particelle sospese PM2.5')) 
             & (filtro_sequenze['NumeroRilevazioni'] > 200
             ))
+            |
+            (((filtro_sequenze['NomeTipoSensore'] == 'Umidità Relativa')
+            | (filtro_sequenze['NomeTipoSensore'] == 'Direzione Vento')
+            | (filtro_sequenze['NomeTipoSensore'] == 'Temperatura')
+            | (filtro_sequenze['NomeTipoSensore'] == 'Velocità Vento')
+            | (filtro_sequenze['NomeTipoSensore'] == 'Precipitazione')
+            | (filtro_sequenze['NomeTipoSensore'] == 'Radiazione Globale'))
+            & (filtro_sequenze['NumeroRilevazioni'] > 29000
+            ))
         ]
         
-        df = df[df['IdSensore'].isin(filtro_sequenze['IdSensore'])]
+        df_concat = df_concat[df_concat['IdSensore'].isin(filtro_sequenze['IdSensore'])]
 
-        df.to_csv(new_path, index=False)
+        df_split = np.array_split(df_concat, 16)
+        for split in df_split:
+            split.to_csv(new_path, header=header, index=False, mode='a')
+            header = False
+
+        # df_concat.to_csv(new_path, header=header, index=False)
+
+    return new_path
 
 
 def get_frequenza(NomeTipoSensore):
     freq_oraria = 24
     freq_giornaliera = 1
+    intervallo_10_min = 144
     
     match NomeTipoSensore:
         case 'Biossido di Azoto':
@@ -144,6 +227,19 @@ def get_frequenza(NomeTipoSensore):
             return freq_giornaliera
         case 'Particelle sospese PM2.5':
             return freq_giornaliera
+        
+        case 'Umidità Relativa':
+            return intervallo_10_min
+        case 'Direzione Vento':
+            return intervallo_10_min
+        case 'Temperatura':
+            return intervallo_10_min
+        case 'Velocità Vento':
+            return intervallo_10_min
+        case 'Precipitazione':
+            return intervallo_10_min
+        case 'Radiazione Globale':
+            return intervallo_10_min
 
         
 def get_ambito(NomeTipoSensore):
@@ -163,20 +259,19 @@ def get_ambito(NomeTipoSensore):
             return inquinamento
         case 'Particelle sospese PM2.5':
             return inquinamento
-        
 
-def diz_chiavi(query):
-    connection = modules.connect.create_db_connection()
-    cursor = connection.cursor()
-
-    cursor.execute(query)
-    rows = cursor.fetchall()
-    result = {line[1] : line[0] for line in rows}
-
-    cursor.close()
-    connection.close()
-
-    return result
+        case 'Umidità Relativa':
+            return meteo
+        case 'Direzione Vento':
+            return meteo
+        case 'Temperatura':
+            return meteo
+        case 'Velocità Vento':
+            return meteo
+        case 'Precipitazione':
+            return meteo
+        case 'Radiazione Globale':
+            return meteo
 
 
 def diz_chiavi_batch(query, connection, cursor):
@@ -186,13 +281,17 @@ def diz_chiavi_batch(query, connection, cursor):
     result = {line[1] : line[0] for line in rows}
     return result
 
-def inserimento_stazioni(path_csv_stazioni, execute=False):
+def inserimento_stazioni(path_csv_stazioni, path_csv_rilevazioni, execute=False):
     if execute:
         df = pd.read_csv(path_csv_stazioni) 
 
         connection = modules.connect.create_db_connection()
         cursor = connection.cursor()
-        
+
+        df_rilevazioni = pd.read_csv(path_csv_rilevazioni, chunksize=4000000)
+        for chunk in df_rilevazioni:
+            df = df[df['IdSensore'].isin(chunk['IdSensore'])]
+
         # provincia
         lista_tuple = [(
             row['Provincia'],
@@ -216,7 +315,7 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
         query = "SELECT id_comune, nome FROM comune;"
         chiavi = diz_chiavi_batch(query, connection, cursor)
         lista_tuple = [(
-            row['Idstazione'],
+            row['IdStazione'],
             row['Quota'],
             chiavi[row['Comune']],
             row['lat'],
@@ -240,7 +339,7 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
         chiavi = diz_chiavi_batch(query, connection, cursor)
         lista_tuple = [(
             row['IdSensore'],
-            row['Idstazione'],
+            row['IdStazione'],
             chiavi[row['NomeTipoSensore']],
             get_frequenza(row['NomeTipoSensore']), 
             get_ambito(row['NomeTipoSensore'])
@@ -248,7 +347,6 @@ def inserimento_stazioni(path_csv_stazioni, execute=False):
         ]
         query = modules.queries.insert_sensore()
         modules.connect.execute_batch(query, lista_tuple, connection, cursor)
-
 
         cursor.close()
         connection.close()
@@ -263,43 +361,56 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         connection = modules.connect.create_db_connection()
         cursor = connection.cursor()
 
+        print("Caricamento dati rilevazioni in corso...")
+
+        query_select = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
+
+
         query = "SET GLOBAL max_allowed_packet=1073741824;"
         cursor.execute(query)
 
         dim = 2000000
 
-        print("Caricamento dati rilevazioni in corso...")
-
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
-
-        query_select = "SELECT id_data_rilevazione, data FROM data_rilevazione;"
-
+        df_filtrato = pd.DataFrame()
         for chunk in df:
-
             chunk_data = chunk.copy()
             chunk_data = chunk_data.drop_duplicates(subset=['Data'])
 
-            chunk_data['Data_24'] = pd.to_datetime(chunk_data['Data'], format='%d/%m/%Y %I:%M:%S %p')
-            chunk_data['Data_24'] = chunk_data['Data_24'].dt.strftime('%Y/%m/%d %H:%M:%S')
+            df_filtrato = pd.concat([df_filtrato, chunk_data])
+            df_filtrato = df_filtrato.drop_duplicates(subset=['Data'])
 
-            # data rilevazione
-            lista_tuple = list({(
-                row['Data'],
-                row['Data_24'],
-                ) for i, row in chunk_data.iterrows()
-            })
-            query = modules.queries.insert_data_rilevazione()
-            modules.connect.execute_batch(query, lista_tuple, connection, cursor)
 
+        df_filtrato['Data_24'] = pd.to_datetime(df_filtrato['Data'], format='%d/%m/%Y %I:%M:%S %p')
+        df_filtrato['Data_24'] = df_filtrato['Data_24'].dt.strftime('%Y/%m/%d %H:%M:%S')
+
+        print(df_filtrato)
+
+        # data rilevazione
+        lista_tuple = list({(
+            row['Data'],
+            row['Data_24'],
+            ) for i, row in df_filtrato.iterrows()
+        })
+
+        query = modules.queries.insert_data_rilevazione()
+        modules.connect.execute_batch(query, lista_tuple, connection, cursor)
+
+        df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
+        for chunk in df:
             # rilevazione
             chunk = chunk.to_numpy()
             chiavi = diz_chiavi_batch(query_select, connection, cursor)
+
+            # print(chiavi)
+
             lista_tuple = [(
                 row[0], # IdSensore
                 chiavi[row[1]], #row[1] = Data
                 row[2], # Valore
                 ) for row in chunk
             ]
+
             query = modules.queries.insert_rilevazione()
             modules.connect.execute_batch(query, lista_tuple, connection, cursor)
 
