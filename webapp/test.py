@@ -5,6 +5,7 @@ from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
 import funzione_stazione_vicina
+import grafici
 import folium
 import plotly
 import os
@@ -848,23 +849,25 @@ def grafico():
             lista_comuni.append(elem[0])
     with open("json_grafici/plot_dati.json", "r") as file:
         dati_grafico = json.load(file)
+    print(dati_grafico)
     json_fig = json.dumps(dati_grafico, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("grafico.html",Permission=Permission, grafico=json_fig, comuni=json.dumps(lista_comuni))
 
 @app.route("/richiesta_searchbar", methods=['POST'])
 def richiesta_searchbar():
     comune = request.form.get("comune")
-    #print(comune)
     comune = comune.split(",")[0]
+    print(comune)
     var = pd.read_csv("coordinate_per_comune.csv", encoding='latin-1')
     df = var.loc[var['denominazione'] == comune]
-    # print(ciao)
     latitudine = df['latitudine'].values[0]
     longitudine = df['longitudine'].values[0]
     tupla = (str(latitudine), str(longitudine))
-    funzione_stazione_vicina.calcolo_distanza(tupla)
+    id_stazione_vicina = funzione_stazione_vicina.calcolo_distanza(tupla)
+    grafici.calcolo_json(id_stazione_vicina)
+    print(id_stazione_vicina)
     #dal comune restituisce stazione
-    return tupla
+    return redirect(url_for("grafico"))
 
 if __name__ == '__main__':
     app.run(debug=True)

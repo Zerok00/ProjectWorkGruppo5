@@ -1,5 +1,6 @@
 # importing geopy library
 import pandas as pd
+import numpy
 #from geopy.geocoders import Nominatim
 # Importing the geodesic module from the library
 #from geopy.distance import geodesic
@@ -7,13 +8,18 @@ import pandas as pd
 def calcolo_distanza(tupla):
     var = pd.read_csv("../migration/database_sql/data/data_clean/dataset_pulito_stazioni.csv", encoding='latin-1')
     minima = 1000
+    id_stazione = 0
+    comune = ""
     for i,elem in var.iterrows():
-        latitudine = elem["latitudine"]
-        longitudine = elem["longitudine"]
-        dist = geodesic((latitudine, longitudine), (tupla[0], tupla[1])).km
+        latitudine = elem["lat"]
+        longitudine = elem["lng"]
+        dist = numpy.sqrt((latitudine - float(tupla[0]))**2 + (longitudine - float(tupla[1]))**2)
         if dist < minima:
             minima = dist
-    print(minima)
+            id_stazione = elem["Idstazione"]
+            comune = elem["Comune"]
+    #print(minima, id_stazione, comune)
+    return id_stazione
 #
 # df = var.loc[var['denominazione'] == comune]
 # # print(ciao)
