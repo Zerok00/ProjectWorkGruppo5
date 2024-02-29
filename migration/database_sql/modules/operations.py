@@ -135,7 +135,10 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
             'Data': 'object', 
             'Valore':'float32', 
             'Stato':'str', 
-            'IdOperatore':'int8'}, chunksize=4000000)
+            'IdOperatore':'int8'
+            }, 
+            chunksize=4000000
+        )
 
         # svuoto csv per permettere di eseguire append alla fine di ognuno dei successivi for 
         df = pd.DataFrame()
@@ -160,6 +163,8 @@ def clean_csv_rilevazioni(path, path_csv_stazioni, new_file_name='data_clean/dat
 
             df_concat = pd.concat([df_concat, df])
 
+        # df = df_concat[df_concat['IdSensore'].isin(df_stazioni['IdSensore'])]
+        
         filtro_frequenze = df_concat.copy()
         # ottengo una serie che raggruppa la somma delle rilevazioni per sensore
         filtro_frequenze = filtro_frequenze.groupby(['IdSensore'])['IdSensore'].count()
@@ -354,7 +359,7 @@ def inserimento_stazioni(path_csv_stazioni, path_csv_rilevazioni, execute=False)
         print("Caricamento dati stazioni completato")
 
 
-def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
+def inserimento_rilevazioni(path_csv_rilevazioni, path_csv_stazioni, execute=False):
     if execute:
         start = time.time()
 
@@ -371,20 +376,24 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
 
         dim = 2000000
 
-        df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
+        df = pd.read_csv(path_csv_rilevazioni, chunksize=dim)
+        df_stazioni = pd.read_csv(path_csv_stazioni)
         df_filtrato = pd.DataFrame()
+
         for chunk in df:
             chunk_data = chunk.copy()
             chunk_data = chunk_data.drop_duplicates(subset=['Data'])
 
             df_filtrato = pd.concat([df_filtrato, chunk_data])
-            df_filtrato = df_filtrato.drop_duplicates(subset=['Data'])
 
+        df_filtrato = df_filtrato.drop_duplicates(subset=['Data'])
+
+        df = df_filtrato[df_filtrato['IdSensore'].isin(df_stazioni['IdSensore'])]    
 
         df_filtrato['Data_24'] = pd.to_datetime(df_filtrato['Data'], format='%d/%m/%Y %I:%M:%S %p')
         df_filtrato['Data_24'] = df_filtrato['Data_24'].dt.strftime('%Y/%m/%d %H:%M:%S')
 
-        print(df_filtrato)
+
 
         # data rilevazione
         lista_tuple = list({(
@@ -399,10 +408,11 @@ def inserimento_rilevazioni(path_csv_rilevazioni, execute=False):
         df = pd.read_csv(path_csv_rilevazioni, chunksize=dim) 
         for chunk in df:
             # rilevazione
+
+            chunk = chunk[chunk['IdSensore'].isin(df_stazioni['IdSensore'])]  
+
             chunk = chunk.to_numpy()
             chiavi = diz_chiavi_batch(query_select, connection, cursor)
-
-            # print(chiavi)
 
             lista_tuple = [(
                 row[0], # IdSensore
