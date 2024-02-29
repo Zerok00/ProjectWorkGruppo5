@@ -145,5 +145,9 @@ def insert_rilevazione():
     VALUES (%s, %s, %s);
     """
     return query
+
+
+def dati_grafico():
+    
    
 

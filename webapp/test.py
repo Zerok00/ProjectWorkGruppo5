@@ -71,7 +71,7 @@ app.config['FOLLOWERS'] = 10
 app.config['COMMENTS'] = 10
 mail = Mail()
 mail.init_app(app)
-
+cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 pagedown = PageDown(app)
 def send_async_email(app, msg):
     with app.app_context():
@@ -506,10 +506,29 @@ def before_request():
 # def user_data():
 
 
+@app.route('/start', methods=['GET', 'POST'])
+def start():
+    return render_template('start.html', Permission=Permission)
+
+@app.route('/database')
+def database():
+    db.create_all()
+    users()
+    posts()
+    return redirect(url_for('index'))
+
+
+last_run = None
+dati_stazioni = None
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     #flash("Your name has changed")
     #Role.insert_roles()
+    if current_user.is_anonymous:
+        redirect("startpage")
+    flash("Your name has changed")
+    Role.insert_roles()
     form = PostForm()
     if current_user.can(Permission.WRITE) and form.validate_on_submit():
         post = Post(body=form.body.data,
@@ -531,7 +550,74 @@ def index():
     mappa = AQI_versione_definitiva.crea_mappa()
     iframe = mappa.get_root()._repr_html_()
 
+    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCOLO I
+    global last_run
+    global dati_stazioni
+    ora = datetime.datetime.now()
+    print(ora, last_run)
+    if last_run == None or (ora - last_run).total_seconds() > 1800:
+        dati_stazioni = calcolo_sensori_stazioni.calcolo_stazioni()
+        last_run = datetime.datetime.now()
+        print(ora, last_run)
+    mappa = folium.Map([45.51, 9.75], zoom_start=8)
+    mappa.get_root().width = "100%"
+    mappa.get_root().height = "100%"
+    for elem in dati_stazioni:
+        diz_per_funzione = {}
+        for sensore in dati_stazioni[elem]["lista_sensori"]:  # conversione nomi per funzione
+            if sensore[1] == "PM10 (SM2005)":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Particelle sospese PM2.5":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Biossido di Azoto":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Monossido di Carbonio":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Ozono":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Biossido di Zolfo":
+                diz_per_funzione[sensore[1]] = sensore[2]
+        aqi = AQI_versione_definitiva.aqi_function(diz_per_funzione)
+        aqi["massimo"] = round(aqi["massimo"])
+        if aqi["massimo"] == "NULL":  # calcola markers
+            folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                          icon=folium.Icon(color="lightgray", icon="xmark", prefix="fa"),
+                          tooltip="Non rilevato").add_to(mappa)
+        else:
+            if aqi["massimo"] <= 50:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="blue", icon="face-smile-beam", prefix="fa"),
+                              tooltip=f"Good\nAQI:{aqi["massimo"]}").add_to(mappa)
+            elif aqi["massimo"] >= 51 and aqi["massimo"] <= 100:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="green", icon="face-grin-wide", prefix="fa"),
+                              tooltip=f"Moderate\nAQI:{aqi["massimo"]}").add_to(mappa)
+            elif aqi["massimo"] >= 101 and aqi["massimo"] <= 150:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="orange", icon="face-meh", prefix="fa"),
+                              tooltip=f"Unhealthy for Sensitive Groups\nAQI:{aqi["massimo"]}").add_to(mappa)
+            elif aqi["massimo"] >= 151 and aqi["massimo"] <= 200:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="red", icon="face-frown-open", prefix="fa"),
+                              tooltip=f"Unhealthy\nAQI:{aqi["massimo"]}").add_to(mappa)
+            elif aqi["massimo"] >= 201 and aqi["massimo"] <= 300:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="purple", icon="face-frown", prefix="fa"),
+                              tooltip=f"Very Unhealthy\nAQI:{aqi["massimo"]}").add_to(mappa)
+            elif aqi["massimo"] >= 301:
+                folium.Marker(location=[dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1]],
+                              icon=folium.Icon(color="darkred", icon="face-sad-tear", prefix="fa"),
+                              tooltip=f"Hazardous\nAQI:{aqi["massimo"]}").add_to(mappa)
+    folium.GeoJson("../migration/database_sql/data/lombardy.geojson").add_to(mappa)
+    iframe = mappa.get_root()._repr_html_()
+
     return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission, iframe=iframe)
+
+    return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission, iframe=iframe)
+
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -870,4 +956,4 @@ def richiesta_searchbar():
     return redirect(url_for("grafico"))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug = True)
