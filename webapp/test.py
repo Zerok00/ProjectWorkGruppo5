@@ -4,6 +4,7 @@ import json
 from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
+import funzione_stazione_vicina
 import folium
 import plotly
 import os
@@ -845,7 +846,7 @@ def grafico():
         lettore = csv.reader(file)
         for elem in lettore:
             lista_comuni.append(elem[0])
-    with open("json_grafici/plot_definito_spero_madavvero.json", "r") as file:
+    with open("json_grafici/plot.json", "r") as file:
         dati_grafico = json.load(file)
     json_fig = json.dumps(dati_grafico, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("grafico.html",Permission=Permission, grafico=json_fig, comuni=json.dumps(lista_comuni))
@@ -861,7 +862,7 @@ def richiesta_searchbar():
     latitudine = df['latitudine'].values[0]
     longitudine = df['longitudine'].values[0]
     tupla = (str(latitudine), str(longitudine))
-    print(tupla)
+    funzione_stazione_vicina.calcolo_distanza(tupla)
     #dal comune restituisce stazione
     return tupla
 

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/plot_definito_spero_madavvero.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/funzione_stazione_vicina.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/funzione_stazione_vicina.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/grafici.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/grafici.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/plot_dati.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/plot_dati.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +56,17 @@
     "Python.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "funzioni",
+    "git-widget-placeholder": "Davide",
     "settings.editor.selected.configurable": "RainbowCSV.Settings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\json_grafici" />
       <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp" />
       <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp\templates" />
       <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp\static" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\migration\database_sql\data" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates" />
     </key>
   </component>
   <component name="SharedIndexes">
