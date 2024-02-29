@@ -1,4 +1,5 @@
 import mysql.connector
+import json
 
 DB_HOST = 'localhost'
 DB_USER = 'root'
@@ -54,7 +55,11 @@ def data(id_stazione, tipologia):
     """
 
     data = execute_fetchall(query, (id_stazione, tipologia,), dict=False)
-    return data
+    lista_data = []
+    for elem in data:
+        lista_data.append(elem[0])
+
+    return lista_data
 def valore(id_stazione, tipologia):
 
     query = """
@@ -67,24 +72,46 @@ def valore(id_stazione, tipologia):
     """
 
     valore = execute_fetchall(query, (id_stazione, tipologia,), dict=False)
-    return valore
+
+    lista_valori = []
+    for elem in valore:
+        lista_valori.append(elem[0])
+
+    return lista_valori
 
 
 id_stazione = 560
 
-lista_finale = []
+
 sostanze = ['Particelle sospese PM2.5', 'PM10 (SM2005)', 'Biossido di Azoto', 'Monossido di Carbonio' ]
-for elem in sostanze:
-    lista_dato = [data(id_stazione, elem), valore(id_stazione, elem)]
-    lista_finale.append(lista_dato)
+diz_finale = {elem : [data(id_stazione, elem), valore(id_stazione, elem)] for elem in sostanze}
+print (diz_finale)
+# for elem in sostanze:
+#     lista_dato = [data(id_stazione, elem), valore(id_stazione, elem)]
+#     lista_finale.append(lista_dato)
 
-print(lista_finale)
-#lista_dati = []
-#for elem in lista_sostanze:
-#lista_dati = lista_dati_grafico(560, 'Biossido di Azoto')
-#print(lista_dati)
+#print(lista_finale)
 
 
-
-
-
+# # Read JSON data from a file
+# with open('plot.json', 'r') as file:
+#     data = json.load(file)
+#
+# y = []
+# x = []
+#
+# for i in range(len(lista)):
+#     x.append(lista[i][0])
+#     y.append(lista[i][1])
+#
+# # Modify the JSON
+# data['data'][0]['x'] = x
+# data['data'][0]['y'] = y
+#
+# # Write the modified JSON data back to the file
+# with open('plot_dati.json', 'w') as file:
+#     json.dump(data, file, indent=4)
+#
+#
+#
+#
