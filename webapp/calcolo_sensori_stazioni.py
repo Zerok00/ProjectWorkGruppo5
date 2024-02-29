@@ -67,3 +67,4 @@ def calcolo_stazioni():
         dizionario_stazione_posizione_sensori[f"stazione{elem[0]}"]["lista_sensori"].append(tupla)
 
     return dizionario_stazione_posizione_sensori
+

@@ -4,14 +4,12 @@ import json
 from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
-import grafico_media_mobile_tasti
 import folium
 import plotly
 import os
 
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, make_response
 from flask_bootstrap import Bootstrap
-from flask_caching import Cache
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -68,12 +66,10 @@ app.config['DAPOLLUTION_MAIL_SENDER'] = 'Da pollution <dapollution@example.com>'
 app.config['POST'] = 10
 app.config['FOLLOWERS'] = 10
 app.config['COMMENTS'] = 10
-app.config['CACHE_TYPE'] = 'simple'
 mail = Mail()
 mail.init_app(app)
 
 pagedown = PageDown(app)
-cache = Cache(app)
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
@@ -508,7 +504,6 @@ def before_request():
 
 
 @app.route('/', methods=['GET', 'POST'])
-@cache.cached(timeout=120)
 def index():
     #flash("Your name has changed")
     #Role.insert_roles()
@@ -833,20 +828,26 @@ def moderate_disable(id):
     db.session.commit()
     return redirect(url_for('.moderate', page=request.args.get('page', 1, type=int)))
 
-@app.route("/prova_searchbar")
-def prova_searchbar():
+# @app.route("/prova_searchbar")
+# def prova_searchbar():
+#     lista_comuni = []
+#     with open("comuni_search_bar.csv", "r", encoding="utf-8") as file:
+#         lettore = csv.reader(file)
+#         for elem in lettore:
+#             lista_comuni.append(elem[0])
+#     return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
+
+@app.route("/grafico")
+def grafico():
     lista_comuni = []
     with open("comuni_search_bar.csv", "r", encoding="utf-8") as file:
         lettore = csv.reader(file)
         for elem in lettore:
             lista_comuni.append(elem[0])
-    return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
-
-@app.route("/grafico")
-def grafico():
-    fig = grafico_media_mobile_tasti.crea_grafico()
-    json_fig = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template("grafico.html",Permission=Permission, grafico=json_fig)
+    with open("json_grafici/Plot 4 (3).json", "r") as file:
+        dati_grafico = json.load(file)
+    json_fig = json.dumps(dati_grafico, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template("grafico.html",Permission=Permission, grafico=json_fig, comuni=json.dumps(lista_comuni))
 
 if __name__ == '__main__':
     app.run(debug=True)

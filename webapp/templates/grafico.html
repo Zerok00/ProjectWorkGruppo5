@@ -12,84 +12,139 @@
     {% endif %}
     {% endif %}
 </div>
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+    <!-- Main Content -->
+    <div id="content">
 
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-                    <h1 class="h3 mb-0 text-gray-800">Storico</h1>
-                </div>
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+                <h1 class="h3 mb-0 text-gray-800">Storico</h1>
+            </div>
 
-                <!-- Content Row -->
-                <div class="row">
+            <!-- Content Row -->
+            <div class="row">
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Scheda utente
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Schema andamento settimanale
-                                            qui
-                                        </div>
-                                    </div>
-                                </div>
+                <!-- Earnings (Monthly) Card Example -->
+
+            </div>
+
+            <!-- Content Row -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Grafico andamento mensile</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area" id="sezione-grafico">
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Istruzioni grafico</h6>
 
-                <!-- Content Row -->
-
-                <div class="row">
-                    <div class="col" >
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Grafico andamento mensile</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area" id="sezione-grafico">
-
-                                </div>
-                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            1. Tieni premuto il click sinistro e trascina per ingrandire un'area del grafico <br>
+                            2. Fai doppio click nell'area del grafico per tornare alle dimensioni originali <br>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Istruzioni grafico</h6>
-
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                1. Tieni premuto il click sinistro e trascina per ingrandire un'area del grafico <br>
-                                2. Fai doppio click nell'area del grafico per tornare alle dimensioni originali <br>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Area Chart -->
                 </div>
+                <!-- Area Chart -->
+            </div>
 
-                <!-- Content Row -->
-                <div class="row">
-                    <!--Inserire qui elementi al di sotto della mappa-->
+            <!-- Content Row -->
+            <div class="row">
+                <div class="col mb-4">
+                    <div class="row">
+                        <div class="col-3">
+                            <form class="d-flex" id="search-bar" role="search">
+                                <input class="form-control me-2" id="barra_ricerca" type="search"
+                                       placeholder="Search" aria-label="Search"
+                                       onkeyup="search(event)">
+                                <button class="btn btn-primary" type="submit"><i
+                                        class="fas fa-fw fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <ul class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
+</div>
+{% block javascript %}
+<script>
+    const result = document.querySelector(".list-group");
+
+    let list = [];
+
+    let keywords = JSON.parse({{comuni | tojson}})
+
+    const startsWith = (keyword, inputKeyword) =>
+      keyword.toLocaleLowerCase().startsWith(inputKeyword.toLocaleLowerCase());
+
+    const generateList = () => (list = list.map((data) => (data = liTag(data))));
+
+    const showList = (inputKeyword) => {
+      result.classList.add("show");
+      result.innerHTML = list.join("") || liTag(inputKeyword);
+    };
+
+    const hideList = () => {
+      list = [];
+      result.innerHTML = list;
+      result.classList.remove("show");
+    };
+
+    const liTag = (value) =>
+      `<li class="list-group-item" onclick="funzione(this)">${value}</li>`;
+
+    function funzione(list){
+            document.getElementById("barra_ricerca").value = list.innerHTML;
+            result.innerHTML = '';
+        }
+
+    const search = (e) => {
+      let keyword = e.target.value;
+
+      if (keyword.length >= 2) {
+        filter(keyword);
+        generateList();
+        showList(keyword);
+      } else hideList();
+    };
+
+    const filter = (inputKeyword) =>
+      (list = keywords.filter(
+        (keyword) =>
+          startsWith(keyword, inputKeyword)
+      ));
+</script>
+
+{% endblock %}
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
     var graph = {{grafico|safe}};

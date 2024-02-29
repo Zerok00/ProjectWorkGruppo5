@@ -111,7 +111,7 @@ def calcolo_markers():
     return lista_marker
 
 def crea_mappa():
-    mappa = folium.Map([45.51, 9.75], zoom_start=8)
+    mappa = folium.Map([45.51, 9.75], zoom_start=8, prefer_canvas=True)
     mappa.get_root().width = "100%"
     mappa.get_root().height = "100%"
     lista_marker = calcolo_markers()
