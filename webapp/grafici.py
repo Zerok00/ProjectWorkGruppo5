@@ -96,7 +96,7 @@ print (diz_finale)
 
 
 # Read JSON data from a file
-with open('plot_definitivo_spero_madavvero.json', 'r') as file:
+with open('definitivo.json', 'r') as file:
     data = json.load(file)
 
 # Modify the JSON

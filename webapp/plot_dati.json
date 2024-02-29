@@ -18,9 +18,9 @@
             "name": "<br>",
             "text": "",
             "type": "bar",
-            "xsrc": "Giovanni97:3:d63016",
+            "xsrc": "Giovanni97:9:50aa0b",
             "x": [],
-            "ysrc": "Giovanni97:3:fa3a58",
+            "ysrc": "Giovanni97:9:b98f71",
             "y": [],
             "marker": {
                 "cmax": 203.6,
@@ -80,7 +80,7 @@
                     "separatethousands": false,
                     "ticklabelposition": "outside"
                 },
-                "colorsrc": "Giovanni97:3:fa3a58",
+                "colorsrc": "Giovanni97:9:b98f71",
                 "color": [
                     "33.5",
                     "50.3",
@@ -9500,7 +9500,7 @@
             "name": "<br>",
             "text": "",
             "type": "bar",
-            "xsrc": "Giovanni97:6:1a7d5b",
+            "xsrc": "Giovanni97:8:a59c77",
             "x": [
                 "2024-01-18 00:00:00",
                 "2023-12-18 00:00:00",
@@ -9895,7 +9895,7 @@
                 "2024-02-11 00:00:00",
                 "2024-02-12 00:00:00"
             ],
-            "ysrc": "Giovanni97:6:99d4f2",
+            "ysrc": "Giovanni97:8:433284",
             "y": [
                 34.0,
                 41.0,
@@ -10350,7 +10350,7 @@
                     "separatethousands": false,
                     "ticklabelposition": "outside"
                 },
-                "colorsrc": "Giovanni97:6:99d4f2",
+                "colorsrc": "Giovanni97:8:433284",
                 "color": [
                     "2.3",
                     "2.7",
@@ -10843,7 +10843,7 @@
             },
             "name": "<br>",
             "type": "bar",
-            "xsrc": "Giovanni97:3:d63016",
+            "xsrc": "Giovanni97:9:50aa0b",
             "x": [
                 "2023-01-01 00:00:00",
                 "2023-01-01 01:00:00",
@@ -20503,7 +20503,7 @@
                 "2024-02-12 23:00:00",
                 "2024-02-13 00:00:00"
             ],
-            "ysrc": "Giovanni97:3:fa3a58",
+            "ysrc": "Giovanni97:9:b98f71",
             "y": [
                 12.9,
                 18.0,
@@ -30169,7 +30169,7 @@
                         "color": "valore"
                     }
                 },
-                "colorsrc": "Giovanni97:3:fa3a58",
+                "colorsrc": "Giovanni97:9:b98f71",
                 "color": [
                     "33.5",
                     "50.3",
@@ -39553,9 +39553,9 @@
             },
             "name": "<br>",
             "type": "bar",
-            "xsrc": "Giovanni97:6:1a7d5b",
+            "xsrc": "Giovanni97:8:a59c77",
             "x": [],
-            "ysrc": "Giovanni97:3:fa3a58",
+            "ysrc": "Giovanni97:9:b98f71",
             "y": [],
             "marker": {
                 "meta": {
@@ -39563,7 +39563,7 @@
                         "color": "valore"
                     }
                 },
-                "colorsrc": "Giovanni97:3:fa3a58",
+                "colorsrc": "Giovanni97:9:b98f71",
                 "color": [
                     "33.5",
                     "50.3",
@@ -49061,7 +49061,7 @@
                                 ]
                             },
                             {
-                                "title": "PM 2.5",
+                                "title": "Pollutions1",
                                 "annotations": []
                             }
                         ],
@@ -49081,7 +49081,7 @@
                                 ]
                             },
                             {
-                                "title": "PM 10",
+                                "title": "Pollutions2",
                                 "annotations": []
                             }
                         ],
@@ -49101,7 +49101,7 @@
                                 ]
                             },
                             {
-                                "title": "Biossido di Azoto",
+                                "title": "Yahoo",
                                 "annotations": []
                             }
                         ],
@@ -49121,7 +49121,7 @@
                                 ]
                             },
                             {
-                                "title": "Monossido di Carbonio",
+                                "title": "Yahoo",
                                 "annotations": []
                             }
                         ],
