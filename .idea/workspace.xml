@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/json_grafici/plot_definito_spero_madavvero.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/plot_definito_spero_madavvero.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/coordinate_per_comune.CSV" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/coordinate_per_comune.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/grafico.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/grafico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Ale" />
+        <entry key="$PROJECT_DIR$" value="giovanni_recupero2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,29 +45,31 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.AQI_versione_definitiva.executor": "Run",
-    "Python.calcolo_sensori_stazioni.executor": "Run",
+    "Python.grafici.executor": "Run",
+    "Python.grafici_json.executor": "Run",
     "Python.grafico_media_mobile.executor": "Run",
+    "Python.grafico_media_mobile_tasti.executor": "Run",
     "Python.lista_comuni_accettabili.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Davide",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "git-widget-placeholder": "funzioni",
+    "settings.editor.selected.configurable": "RainbowCSV.Settings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\json_grafici" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork" />
       <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp" />
+      <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp\templates" />
+      <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp\static" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\migration\database_sql\data" />
+      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
