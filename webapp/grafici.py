@@ -80,7 +80,7 @@ def valore(id_stazione, tipologia):
     return lista_valori
 
 
-id_stazione = 560
+id_stazione = 517
 
 
 sostanze = ['Particelle sospese PM2.5', 'PM10 (SM2005)', 'Biossido di Azoto', 'Monossido di Carbonio' ]
