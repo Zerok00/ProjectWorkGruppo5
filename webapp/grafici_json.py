@@ -9,7 +9,7 @@ with open('prova_json.csv', mode='r') as file:
 print(lista)
 
 # Read JSON data from a file
-with open('Plot 4.json', 'r') as file:
+with open('plot.json', 'r') as file:
     data = json.load(file)
 
 y = []
@@ -24,5 +24,5 @@ data['data'][0]['x'] = x
 data['data'][0]['y'] = y
 
 # Write the modified JSON data back to the file
-with open('Plot_4_modificato.json', 'w') as file:
+with open('plot_dati.json', 'w') as file:
     json.dump(data, file, indent=4)
