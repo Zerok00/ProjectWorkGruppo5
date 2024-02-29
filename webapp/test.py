@@ -844,7 +844,7 @@ def grafico():
         lettore = csv.reader(file)
         for elem in lettore:
             lista_comuni.append(elem[0])
-    with open("json_grafici/Plot 4 (3).json", "r") as file:
+    with open("json_grafici/Plot 4 (4).json", "r") as file:
         dati_grafico = json.load(file)
     json_fig = json.dumps(dati_grafico, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("grafico.html",Permission=Permission, grafico=json_fig, comuni=json.dumps(lista_comuni))
