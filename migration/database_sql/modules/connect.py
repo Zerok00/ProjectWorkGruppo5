@@ -100,9 +100,6 @@ def execute_batch(query, data, connection, cursor):
 
     try:
         cursor.executemany(query, data)
-        for result in cursor.stored_results():
-            print(result)
-
         connection.commit()
        
     except mysql.connector.Error as err:

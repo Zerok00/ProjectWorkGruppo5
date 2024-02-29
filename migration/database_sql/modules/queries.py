@@ -82,17 +82,15 @@ def execute_create_tables():
     id_sensore INT,
     id_data_rilevazione INT,
     valore FLOAT,
-    
+    CONSTRAINT fk_sensore FOREIGN KEY (id_sensore)
+        REFERENCES sensore(id_sensore)
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_data_rilevazione FOREIGN KEY (id_data_rilevazione)
         REFERENCES data_rilevazione(id_data_rilevazione)
         ON DELETE CASCADE ON UPDATE CASCADE
     );
     """
     modules.connect.execute_one(query)
-
-    memo ="""CONSTRAINT fk_sensore FOREIGN KEY (id_sensore)
-        REFERENCES sensore(id_sensore)
-        ON DELETE CASCADE ON UPDATE CASCADE,"""
 
 
 # insert da csv stazioni

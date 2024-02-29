@@ -35,7 +35,7 @@ path_meteo = 'data\stazioni_meteo.csv'
 path_stazioni_meteo = operations.clean_csv_stazioni(
     path_meteo, 
     i="_meteo", 
-    execute=True
+    execute=False
 )
 
 path_meteo = 'data\Dati_sensori_meteo_20240220.csv'
@@ -43,8 +43,8 @@ path_rilevazioni_meteo = operations.clean_csv_rilevazioni(
     path_meteo, 
     path_stazioni_meteo, 
     i="_meteo", 
-    execute=True
+    execute=False
 )
 
-operations.inserimento_stazioni(path_stazioni_meteo, path_rilevazioni_meteo, execute=True)
-operations.inserimento_rilevazioni(path_rilevazioni_meteo, execute=True)
+operations.inserimento_stazioni(path_stazioni_meteo, path_rilevazioni_meteo, execute=False)
+operations.inserimento_rilevazioni(path_rilevazioni_meteo, execute=False)
