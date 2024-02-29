@@ -4,12 +4,15 @@ import json
 from flask import Flask, render_template, Response, stream_template
 import calcolo_sensori_stazioni
 import AQI_versione_definitiva
+import grafico_media_mobile_tasti
 import folium
+import plotly
 import os
 
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, make_response
 from flask_bootstrap import Bootstrap
 from flask_caching import Cache
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
@@ -65,10 +68,12 @@ app.config['DAPOLLUTION_MAIL_SENDER'] = 'Da pollution <dapollution@example.com>'
 app.config['POST'] = 10
 app.config['FOLLOWERS'] = 10
 app.config['COMMENTS'] = 10
+app.config['CACHE_TYPE'] = 'simple'
 mail = Mail()
 mail.init_app(app)
 cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 pagedown = PageDown(app)
+cache = Cache(app)
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
@@ -491,13 +496,15 @@ def inject_permissions():
 @app.before_request
 def before_request():
     """db.drop_all()"""
-    """db.create_all()"""
-    """users()
-    posts()"""
+    #db.create_all()
+    #users()
+    #posts()
     if (not current_user.is_anonymous) and current_user.is_authenticated:
         current_user.ping()
         if not current_user.confirmed:
             flash("Please, confirm your mail.")
+
+# def user_data():
 
 
 @app.route('/start', methods=['GET', 'POST'])
@@ -516,7 +523,10 @@ last_run = None
 dati_stazioni = None
 
 @app.route('/', methods=['GET', 'POST'])
+@cache.cached(timeout=120)
 def index():
+    #flash("Your name has changed")
+    #Role.insert_roles()
     if current_user.is_anonymous:
         redirect("startpage")
     flash("Your name has changed")
@@ -538,6 +548,9 @@ def index():
         query = Post.query
     pagination = query.order_by(Post.timestamp.desc()).paginate(page=page, per_page=app.config['POST'], error_out=False)
     posts = pagination.items
+    #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCOLO I
+    mappa = AQI_versione_definitiva.crea_mappa()
+    iframe = mappa.get_root()._repr_html_()
 
     # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCOLO I
     global last_run
@@ -600,6 +613,7 @@ def index():
     folium.GeoJson("../migration/database_sql/data/lombardy.geojson").add_to(mappa)
     iframe = mappa.get_root()._repr_html_()
 
+    return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission, iframe=iframe)
 
     return render_template('index.html', form=form, posts=posts, show_followed=show_followed, pagination=pagination, Permission=Permission, iframe=iframe)
 
@@ -914,6 +928,11 @@ def prova_searchbar():
             lista_comuni.append(elem[0])
     return render_template("search_bar.html", comuni=json.dumps(lista_comuni))
 
+@app.route("/grafico")
+def grafico():
+    fig = grafico_media_mobile_tasti.crea_grafico()
+    json_fig = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template("grafico.html",Permission=Permission, grafico=json_fig)
 
 if __name__ == '__main__':
     app.run(debug = True)

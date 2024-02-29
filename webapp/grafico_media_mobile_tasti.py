@@ -93,7 +93,7 @@ def crea_grafico():
     fig = dict(data=data, layout=layout)
     #plot(fig, filename='rilevazione.html')
 
-    with open("Plot 1.json", "r") as file:
+    with open("Plot_4_modificato.json", "r") as file:
         dati_grafico = json.load(file)
 
     return dati_grafico

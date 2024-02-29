@@ -1,3 +1,5 @@
+import calcolo_sensori_stazioni
+import folium
 epa_tables = [
     {"AQI Range": [0.0, 50.0], "PM10 (SM2005)": [0.0, 54.], "Particelle sospese PM2.5": [0.0, 9.0], "Ozono": [0.0, 54.],
      "Monossido di Carbonio": [0.0, 4.4],
@@ -71,6 +73,54 @@ def aqi_function(conc:dict):
 
     return aqi
 
+def calcolo_markers():
+    dati_stazioni = calcolo_sensori_stazioni.calcolo_stazioni()
+    lista_marker = []
+    for elem in dati_stazioni:
+        diz_per_funzione = {}
+        for sensore in dati_stazioni[elem]["lista_sensori"]:  # conversione nomi per funzione
+            if sensore[1] == "PM10 (SM2005)":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Particelle sospese PM2.5":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Biossido di Azoto":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Monossido di Carbonio":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Ozono":
+                diz_per_funzione[sensore[1]] = sensore[2]
+            elif sensore[1] == "Biossido di Zolfo":
+                diz_per_funzione[sensore[1]] = sensore[2]
+        aqi = aqi_function(diz_per_funzione)
+        aqi["massimo"] = round(aqi["massimo"])
+        if aqi["massimo"] == "NULL":  # coord: 0-1 color:2 icon:3 prefix:4 tooltip:5
+            lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "lightgray", "xmark", "fa", "Non rilevato"))
+        else:
+            if aqi["massimo"] <= 50:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "blue", "face-smile-beam", "fa", f"Good\nAQI:{aqi["massimo"]}"))
+            elif aqi["massimo"] >= 51 and aqi["massimo"] <= 100:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "green", "face-grin-wide", "fa", f"Moderate\nAQI:{aqi["massimo"]}"))
+            elif aqi["massimo"] >= 101 and aqi["massimo"] <= 150:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "orange", "face-meh","fa", f"Unhealthy for Sensitive Groups\nAQI:{aqi["massimo"]}"))
+            elif aqi["massimo"] >= 151 and aqi["massimo"] <= 200:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "red", "face-frown-open","fa", f"Unhealthy\nAQI:{aqi["massimo"]}"))
+            elif aqi["massimo"] >= 201 and aqi["massimo"] <= 300:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "purple", "face-frown", "fa", f"Very Unhealthy\nAQI:{aqi["massimo"]}"))
+            elif aqi["massimo"] >= 301:
+                lista_marker.append((dati_stazioni[elem]["coord"][0], dati_stazioni[elem]["coord"][1], "darkred", "face-sad-tear", "fa", f"Hazardous\nAQI:{aqi["massimo"]}"))
+    return lista_marker
+
+def crea_mappa():
+    mappa = folium.Map([45.51, 9.75], zoom_start=8)
+    mappa.get_root().width = "100%"
+    mappa.get_root().height = "100%"
+    lista_marker = calcolo_markers()
+    for elem in lista_marker:
+        folium.Marker(location=[elem[0], elem[1]],
+                      icon=folium.Icon(color=elem[2], icon=elem[3], prefix=elem[4]),
+                      tooltip=elem[5]).add_to(mappa)
+    folium.GeoJson("../migration/database_sql/data/lombardy.geojson").add_to(mappa)
+    return mappa
 # example = {"PM10 (SM2005)": 55.5, "Particelle sospese PM2.5": 58., "Ozono": 56., "Monossido di Carbonio": 12.,
 #            "Biossido di Zolfo": 35.0, "Biossido di Azoto": 5.0}
 #
