@@ -74,8 +74,8 @@
                 <div class="col mb-4">
                     <div class="row">
                         <div class="col-3">
-                            <form class="d-flex" id="search-bar" role="search">
-                                <input class="form-control me-2" id="barra_ricerca" type="search"
+                            <form class="d-flex" id="search-bar" role="search" method="POST" action="/richiesta_searchbar">
+                                <input class="form-control me-2" id="barra_ricerca" type="search" name="comune"
                                        placeholder="Search" aria-label="Search"
                                        onkeyup="search(event)">
                                 <button class="btn btn-primary" type="submit"><i

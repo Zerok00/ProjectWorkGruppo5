@@ -7,6 +7,7 @@ import AQI_versione_definitiva
 import folium
 import plotly
 import os
+import pandas as pd
 
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, make_response
 from flask_bootstrap import Bootstrap
@@ -844,10 +845,25 @@ def grafico():
         lettore = csv.reader(file)
         for elem in lettore:
             lista_comuni.append(elem[0])
-    with open("json_grafici/Plot 4 (4).json", "r") as file:
+    with open("json_grafici/plot_definito_spero_madavvero.json", "r") as file:
         dati_grafico = json.load(file)
     json_fig = json.dumps(dati_grafico, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("grafico.html",Permission=Permission, grafico=json_fig, comuni=json.dumps(lista_comuni))
+
+@app.route("/richiesta_searchbar", methods=['POST'])
+def richiesta_searchbar():
+    comune = request.form.get("comune")
+    #print(comune)
+    comune = comune.split(",")[0]
+    var = pd.read_csv("coordinate_per_comune.csv", encoding='latin-1')
+    df = var.loc[var['denominazione'] == comune]
+    # print(ciao)
+    latitudine = df['latitudine'].values[0]
+    longitudine = df['longitudine'].values[0]
+    tupla = (str(latitudine), str(longitudine))
+    print(tupla)
+    #dal comune restituisce stazione
+    return tupla
 
 if __name__ == '__main__':
     app.run(debug=True)
