@@ -130,7 +130,7 @@ else:
 
 
 # Write the modified JSON data back to the file
-with open('plot_dati.json', 'w') as file:
+with open('json_grafici/plot_dati.json', 'w') as file:
     json.dump(data, file, indent=4)
 
 

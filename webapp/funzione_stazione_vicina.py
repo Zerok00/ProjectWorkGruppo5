@@ -1,8 +1,8 @@
 # importing geopy library
 import pandas as pd
-from geopy.geocoders import Nominatim
+#from geopy.geocoders import Nominatim
 # Importing the geodesic module from the library
-from geopy.distance import geodesic
+#from geopy.distance import geodesic
 
 def calcolo_distanza(tupla):
     var = pd.read_csv("../migration/database_sql/data/data_clean/dataset_pulito_stazioni.csv", encoding='latin-1')
