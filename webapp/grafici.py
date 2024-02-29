@@ -86,6 +86,8 @@ id_stazione = 560
 sostanze = ['Particelle sospese PM2.5', 'PM10 (SM2005)', 'Biossido di Azoto', 'Monossido di Carbonio' ]
 diz_finale = {elem : [data(id_stazione, elem), valore(id_stazione, elem)] for elem in sostanze}
 print (diz_finale)
+
+
 # for elem in sostanze:
 #     lista_dato = [data(id_stazione, elem), valore(id_stazione, elem)]
 #     lista_finale.append(lista_dato)
@@ -93,25 +95,33 @@ print (diz_finale)
 #print(lista_finale)
 
 
-# # Read JSON data from a file
-# with open('plot.json', 'r') as file:
-#     data = json.load(file)
-#
-# y = []
-# x = []
-#
-# for i in range(len(lista)):
-#     x.append(lista[i][0])
-#     y.append(lista[i][1])
-#
-# # Modify the JSON
-# data['data'][0]['x'] = x
-# data['data'][0]['y'] = y
-#
-# # Write the modified JSON data back to the file
-# with open('plot_dati.json', 'w') as file:
-#     json.dump(data, file, indent=4)
-#
-#
-#
-#
+# Read JSON data from a file
+with open('plot.json', 'r') as file:
+    data = json.load(file)
+
+# Modify the JSON
+if 'Particelle sospese PM2.5' in diz_finale.keys():
+    data['data'][0]['x'] = diz_finale['Particelle sospese PM2.5'][0]
+    data['data'][0]['y'] = diz_finale['Particelle sospese PM2.5'][1]
+else:
+
+
+if 'PM10 (SM2005)' in diz_finale.keys():
+    data['data'][1]['x'] = diz_finale['PM10 (SM2005)'][0]
+    data['data'][1]['y'] = diz_finale['PM10 (SM2005)'][1]
+
+if 'Biossido di Azoto' in diz_finale.keys():
+    data['data'][2]['x'] = diz_finale['Biossido di Azoto'][0]
+    data['data'][2]['y'] = diz_finale['Biossido di Azoto'][1]
+
+if 'Monossido di Carbonio' in diz_finale.keys():
+    data['data'][3]['x'] = diz_finale['Monossido di Carbonio'][0]
+    data['data'][3]['y'] = diz_finale['Monossido di Carbonio'][1]
+
+# Write the modified JSON data back to the file
+with open('plot_dati.json', 'w') as file:
+    json.dump(data, file, indent=4)
+
+
+
+
