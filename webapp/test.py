@@ -71,7 +71,6 @@ app.config['FOLLOWERS'] = 10
 app.config['COMMENTS'] = 10
 mail = Mail()
 mail.init_app(app)
-cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 pagedown = PageDown(app)
 def send_async_email(app, msg):
     with app.app_context():

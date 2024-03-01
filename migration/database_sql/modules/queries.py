@@ -146,8 +146,3 @@ def insert_rilevazione():
     """
     return query
 
-
-def dati_grafico():
-    
-   
-

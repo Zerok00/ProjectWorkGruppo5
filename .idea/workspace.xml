@@ -5,27 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f278ea40-6566-413b-b6ef-39460b773b75" name="Changes" comment="">
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/ProjectWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectWork.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_10_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_10_42__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_10_42__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_10_42__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_16_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22_02_2024_16_48__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2024_15_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2024_15_05__Changes_.xml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/Plot 4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/Plot_4_modificato.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
->>>>>>> Davide
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/AQI_versione_definitiva.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/AQI_versione_definitiva.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/grafico_media_mobile_tasti.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/grafico_media_mobile_tasti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/grafico.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/grafico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/database_sql/db_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/migration/database_sql/db_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/database_sql/modules/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/migration/database_sql/modules/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/database_sql/modules/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/migration/database_sql/modules/queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,66 +55,30 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.AQI_version2.executor": "Run",
     "Python.AQI_versione_definitiva.executor": "Run",
+    "Python.db_controller.executor": "Run",
     "Python.grafico_media_mobile.executor": "Run",
     "Python.lista_comuni_accettabili.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "Ale",
-    "last_opened_file_path": "C:/Users/aleco/_DAITA12/_git/ProjectWorkGruppo5",
-    "settings.editor.selected.configurable": "RainbowCSV.Settings"
-=======
     "git-widget-placeholder": "Davide",
+    "last_opened_file_path": "C:/Users/lucar/PycharmProjects/ProjectWork",
     "settings.editor.selected.configurable": "preferences.keymap"
->>>>>>> Davide
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-<<<<<<< HEAD
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\migration\database_sql\data" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\static" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates\startbootstrap-sb-admin-2-gh-pages" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp" />
-=======
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork" />
       <recent name="C:\Users\Admin\Documents\GitHub\ProjectWorkGruppo5\webapp" />
-      <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\migration\database_sql\data" />
       <recent name="C:\Users\lucar\PycharmProjects\ProjectWork\webapp\templates" />
->>>>>>> Davide
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="AQI_version2" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ProjectWork" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AQI_version2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
